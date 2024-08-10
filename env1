@@ -1,0 +1,10 @@
+gt_secret = "691a27b14a17474f03142ba6c63347ab9a9f592d"
+gt_client = "Ov23libe9d8wlQxjU4XO"
+redirect = "http://localhost:8080/auth/github"
+dbURL = "mongodb+srv://shellcoin:Rajedit%40shellcoin5119@shellcoin.zxcyjat.mongodb.net"
+sessionSecret = "9f4c7e11f5a1a7d3e3a8f1e7e2a5c3b7"
+authSecret = "9f3c7e1f5aac7d1e3af1e7e2c5b3b7c7d4f5e6a7b8c7d0e1f2a3b4c9d6e7f8c0"
+
+Seed Phrase: reason better prefer dinosaur culture water already add captain million raise tooth
+Private Key (Base64): U5PW+WWAOakyzqjJMCRpHm9y4IoJkpv0b6uITbMdBHw=
+Wallet Address: fbacf68cff7da4223c18725e05d451734c62a499

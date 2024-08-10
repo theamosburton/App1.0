@@ -1,0 +1,173 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(232, 234, 237)!important;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.selfContainer{
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  /* max-width: 1300px; */
+}
+.head{
+  height: 100px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+  position: fixed;
+  background: white;
+  box-shadow: rgb(1,1,1,0.1) 0 1px 2px 0px,rgb(1,1,1,0.1) 0 1px 2px 0px, #ddd 0 1px 2px 0px, #ddd 0 1px 2px 0px;
+}
+.headTop{
+  width: -webkit-fill-available;
+  height: 50%;
+  padding: 10px 20px 7px 20px;
+
+}
+.headTop h1{
+  color: #3367d6;
+  font-size: 2em;
+  margin-bottom: 0px;
+}
+.headTop h1 span{
+  color: grey;
+  font-weight: 400;
+  font-size: .8em;
+}
+.headMenus{
+  height: 50%;
+  padding: 10px 10px 1px 10px;
+  display: flex;
+  overflow: auto;
+  align-items: center;
+}
+.headMenus .menus{
+  text-decoration: none;
+  color: #666;
+  padding: 3px 10px;
+  margin: 0px 8px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.body{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  padding-top: 100px;
+  overflow: hidden;
+  justify-content: center;
+}
+.headMenus .menus:hover{
+  border-bottom: 3px solid #3367d6;
+  border-radius: 7px 7px 0px 0px;
+  color: #3367d6;
+}
+.active{
+  border-bottom: 3px solid#3367d6;
+  border-radius: 7px 7px 0px 0px;
+  color: #3367d6!important;
+}
+.sideBar{
+  height: 100vh;
+  min-width: 250px;
+  overflow:auto;
+  scroll-behavior: smooth;
+  background-color: #fff;
+  box-shadow: rgb(1,1,1,0.1) 0 1px 2px 0px,rgb(1,1,1,0.1) 0 1px 2px 0px, 0 1px 2px 0px, rgb(1,1,1,0) 0 1px 2px 0px;
+}
+.sideBar .links{
+  padding: 20px 0px;
+  margin-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  list-style:none;
+  scroll-behavior: smooth;
+}
+.sideBar .links .link{
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  margin: 10px 15px 10px 0px;
+  padding: 5px 10px 10px 15px;
+  border-bottom: 1px solid rgb(232, 234, 237);
+}
+.sideBar .links .link:hover{
+  color: #3367d6;
+}
+ .activeLink{
+   color: #3367d6!important;
+ }
+.mainContent{
+  display: flex;
+  width: calc(100vw - 250px);
+  flex-direction: column;
+  overflow: auto;
+  scroll-behavior: smooth;
+  height: calc(100vh - 100px);
+
+}
+.innerDiv{
+  border-radius: 3px;
+  margin: 20px 20px 10px 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0;
+}
+.h-50{
+  height: 50px;
+}
+.mainContent .paragraph{
+  max-width: 850px;
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+.mainContent .last{
+  display: flex;
+  justify-content: right;
+  text-align:center;
+  font-weight: bolder;
+}
+.mainContent .paragraph h2{
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 1.6em;
+}
+.mainContent .paragraph ul{
+  margin-left: 20px;
+}
+@media (max-width: 750px) {
+  .sideBar{
+     display: none;
+   }
+}
+@media (max-width: 600px) {
+  .innerDiv{
+    margin: 0;
+  }
+  .mainContent{
+    width: auto;
+    padding: 10;
+  }
+  .headTop h1{
+    font-size: 1.4em;
+  }
+  .headTop h1 span{
+    font-size: .9em;
+  }
+}

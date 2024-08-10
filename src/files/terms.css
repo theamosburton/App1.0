@@ -1,0 +1,58 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    font-family: Geometric;
+    /* background-color: hsl(240deg 48.15% 10.59%); */
+}
+.viewArea{
+    align-items: flex-start !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.title{
+    font-size: 22px;
+    font-weight: bold;
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.points, .points ul li{
+    display: block;
+    font-size: 17px;
+    color: rgb(194, 188, 182);
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.uList b{
+    color: rgb(232, 232, 232);
+}
+.sections{
+    margin-top: 14px;
+}
+
+.uList li{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.contentSection{
+    padding: 30px;
+    max-width: 1000px;
+}
+.mainTitle{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-top: 30px;
+    color: azure;
+}
+.contact{
+    margin: 3px 3px 10px 20px;
+}
