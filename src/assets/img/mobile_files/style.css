@@ -1,0 +1,135 @@
+body{
+    padding:0;
+    margin:0;
+}
+.upperdiv{
+    height:100%;
+    width: 100%;
+    background-color: rgb(179, 202, 206); 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lowerdiv{
+    height:400px;
+    width: 200px;
+    /* background-color: red; */
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px;
+    display:flex;
+    justify-content: center;
+    align-items: center
+}
+.screen{
+    border: 1px solid rgb(5, 58, 122);
+    height:100%;
+    width:100%;
+    border-radius:20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+}
+
+
+
+.mic{
+    height: 3px;
+    width:80px;
+    border: 1px solid;
+    border-radius: 0px 0px 3px 3px;
+    background-color: black;
+    margin-top: 0px;
+}
+
+
+.camera{
+    height: 8px;
+    width:8px;
+    border: 1px solid;
+    border-radius: 11px;
+    margin-top: 5px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+    
+}
+.lens{
+    height: 5px;
+    width:5px;
+    background-color: rgb(10, 9, 42);
+    border-radius: 6px;
+    
+
+}
+.time{
+    
+    width: 80%;
+    padding: 5px;
+    margin-top: 20px;
+
+}
+
+
+
+
+.searchbar{
+
+    height:30px;
+    width:80%;
+    background-color:white;
+    margin-top: 20px;
+    border-radius: 30px;
+    /* text-align: center; */
+    flex-direction: column;
+    /* align-items: center;     */
+    justify-content: center;
+    display: flex;
+    padding-left: 10px;
+}
+.appbox{
+    height:auto;
+    width:200px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction:column;
+    margin: 5px;
+    margin-top: 50px;
+
+}
+
+
+.column{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.app{
+    height:30px;
+    width:30px;
+    border-radius: 5px;
+    border:1px grey;
+    margin: 5px;
+    display:inline-block;
+    margin-left: 10px;
+    background-color: red;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    flex-direction: column;
+}
+.icon{
+    height: 80%;
+    width:100%;
+    border:1px solid;
+}
+.appname{
+    font-size: xx-small;
+}

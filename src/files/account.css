@@ -1,0 +1,51 @@
+.dropdownContainer{ 
+    width: 100%;
+    height: 50%;
+    z-index: 9999;
+    position: absolute;
+}
+
+.viewArea{
+    max-width: 1200px;
+}
+
+.dropdownDiv {
+    position: absolute;
+    min-width: 200px;
+    border: 1px solid;
+    border-radius: 25px;
+    background-color: #9e239e;
+    padding: 10px;
+    z-index: 99999;
+    top: -50px;
+    right: 71px;
+    display: flex;
+    flex-direction: column;
+}
+
+.leftStatBox .statTitle, .rightStatBox .statTitle {
+    margin-top: 1px;
+}
+
+.tokenStatSection{
+    position: relative;
+}
+.tokenStatSection .statTitle {
+    font-size: 30px;
+    margin: 30px 30px 0px 30px;
+}
+
+.tokenStatSection .mainTitle {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    font-size: 30px;
+}
+@media screen and (max-width: 851px) {
+    .tokenStatSection .statSection {
+        justify-content: flex-start;
+     
+    }
+    .dropdownDiv {
+        right: 20px !important;
+    }
+}

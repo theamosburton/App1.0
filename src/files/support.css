@@ -1,0 +1,148 @@
+.supportSection{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+} 
+.supportSection .head{
+    width: auto;
+    display: flex;
+    padding: 10px 40px 10px 80px;
+    max-width: 900px;
+}
+.supportSection .title{
+    color: aliceblue;
+    font-family: Geometric;
+    font-size: 23px;
+    width: 50%;
+    margin-left: 10px;
+}
+
+.supportSection .raiseQueryButton{
+    color: aliceblue;
+    font-family: Geometric;
+    font-size: 15px;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.supportSection .raiseQueryButton span{
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 6px 15px;
+    background-color: blue;
+}
+
+.supportSection .raiseQueryButton span:hover{
+    cursor: pointer;
+    background-color: rgb(73, 73, 254);
+    border-color: rgb(156, 167, 176);
+}
+
+.supportSection .recentQueries{
+    display: flex;
+    padding: 10px 40px 10px 80px;
+}
+
+
+.supportSection .recentQueries .queries{
+    margin-top: 10px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0px 0px 5px 1px black;
+    border-left: 20px solid rgb(33, 41, 55);
+    padding: 20px 70px 20px 20px;
+    font-family: Geometric;
+    color: rgb(209, 208, 208);
+}
+.supportSection .recentQueries .queries .queryHead{
+    margin-bottom: 10px;
+}
+.supportSection .recentQueries .queries .queryBody{
+    margin-left: 10px;
+    color: rgb(194, 204, 204);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.supportSection .recentQueries .queries .queryTime, .responseTime{
+    font-size: 10px;
+    font-weight: 100;
+    /* text-transform: uppercase; */
+    margin-left: 10px;
+}
+
+.supportSection .recentQueries .queries .queryStatus{
+    font-size: 15px;
+    font-weight: 100;
+    margin-left: 10px;
+}
+
+.replied{
+    color: lime;
+}
+
+.closed{
+    color: red;
+}
+
+.responseNeeded{
+    color: orangered;
+}
+
+.responseBody{
+    margin-top: 5px;
+    color: rgb(194, 204, 204);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.supportSection .recentQueries .queries .queryResponse{
+    margin-left: 10px;
+    margin-top: 8px;
+}
+.supportSection .recentQueries .emptyQuery{
+    width: 100%;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    font-family: Geometric;
+    font-size: 20px;
+    color: whitesmoke;
+    border-radius: 10px;
+    max-width: 800px;
+}
+.supportForm{
+    flex-direction: column;
+    margin-top: 10px;
+    color: aliceblue;
+    font-family: Geometric;
+    border: 1px solid;
+    padding: 10px;
+    margin: 10px 50px;
+    max-width: 600px;
+}
+.supportForm .fieldSection{
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.supportForm .fields{
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.submitButton span{
+    padding: 7px 13px;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 550px) {
+    .supportSection .head{
+        padding: 20px;
+    }
+    .supportSection .recentQueries{
+        padding: 20px;
+    }
+}

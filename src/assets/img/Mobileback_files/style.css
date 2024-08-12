@@ -1,0 +1,124 @@
+body{
+    margin:0px;
+    display: flex;
+}
+
+.main{
+
+    height: 100%;
+    width: 100%;
+    background-color: antiquewhite;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.phonebackside{
+    height: 400px;
+    width: 200px;
+    background-color: darkgreen;
+    border:1px solid;
+    border-radius:30px;
+    padding-left:10px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+.cameras{
+    /* height: 90px; */
+    width: 40px;
+    background-color: darkgreen;
+    border: 1px solid;
+    border-radius: 30px;
+    /* padding-top: 7px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-left: 12px; */
+    flex-direction: column;
+    box-shadow: 0px 0px 3px 1px;
+}
+
+.camera{
+    height: 25px;
+    width: 25px;
+    border-radius: 25px;
+    border: 2px solid;
+    margin-top: 5px;
+    margin-bottom:5px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cam2{ 
+    height:22px;
+    width: 22px;
+    border-radius: 22px;
+   
+
+
+}
+.cam3{
+    height:20px;
+    width: 20px;
+    border-radius: 20px;
+   
+}
+.istcamera{
+    height: 22px;
+    width: 22px;
+    border-radius: 22px;
+    background-color: grey;
+
+
+    
+}
+
+.secondcamera {
+    height: 19px;
+    width: 19px;
+    border-radius: 19px;
+    background-color: grey;
+
+}
+.thirdcamera {
+    height: 16px;
+    width: 16px;
+    border-radius:16px;
+    background-color: grey;
+
+}
+.fingerprintbox{
+    height: 60px;
+    width: 100%px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+.fingerprint{
+    height: 50px;
+    width:50px;
+    border-radius: 50px;
+    box-shadow: inset 1px 0px 3px 1px;
+    background-color:darkpurple;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: 1px solid;
+   
+
+
+}
+.fingerprintsensor{
+    height: 40px;
+    width:40px;
+    border-radius: 40px;
+    background-color: purple;
+    border: 1px solid silver;
+   
+
+} 

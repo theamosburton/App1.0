@@ -1,0 +1,1131 @@
+@font-face {
+    font-family: 'Geometric';
+    src: url('../fonts/geometric-415-black-bt.ttf') format('truetype');
+    /* Add additional src lines if you have different font formats */
+}
+
+body, *{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body::-webkit-scrollbar, body::-webkit-scrollbar-track, .topViewBox::-webkit-scrollbar{
+    width: 0px;
+}
+.topViewBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color:hsl(240deg 48.15% 10.59%);
+    align-items: center;
+    justify-content: center;
+}
+.viewArea{
+    max-width: 1300px;
+    width: 100%;
+    background-color: hsl(240deg 48.15% 10.59%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px 20px;
+}
+
+.headerSection{
+    width: 100%;
+    display: flex;
+    padding: 15px;
+}
+.logoSection{
+    width: auto;
+    display: flex;
+    padding: 10px 20px;
+    align-items: flex-end;
+
+}
+.logoSection .name{
+    color: aliceblue;
+    font-family: Geometric;
+    align-items: center;
+    font-size: 33px;
+}
+.logoSection p{
+    color: aliceblue;
+    font-family: Geometric;
+    margin-left: 3px;
+}
+.logoSection .logo{
+    height: 40px;
+    width: 40px;
+    margin-right: 5px;
+}
+.menusSection{
+    width: 100%;
+    /* border: 1px solid gray; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+}
+.menusSection .h-spacer{
+    width: 100px;
+}
+.v-spacer-tk{
+    height: 50px;
+}
+
+.menusSection .link, .menus .link{
+    text-decoration: none;
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0px 15px 0px 10px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.menusSection .menus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.menusSection .wallet{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.menusSection .wallet:hover{
+    border-width: 2px;
+    cursor: pointer;
+}
+
+
+.profileButton{
+    display: flex;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.profileButtonWithoutBorder{
+    border: none;
+}
+
+.profileButton .imgDiv{
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    border: 2px solid grey;
+}
+
+.profileButton .imgDiv .profileImage{
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ed5aed;
+
+}
+.menusSection .dropdownIcon{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ed5aed;
+    margin-left: 0px;
+}
+
+.profileButton .nameDiv{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    margin-left: 3px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+
+}
+
+.profileButton .nameDiv:hover{
+    color:#ed5aed;
+}
+
+.dropdownContainer{
+    width: 100%;
+    z-index: 9999;
+    position: relative;
+}
+
+.dropdownDiv{
+    position: absolute;
+    min-width: 200px;
+    border: 1px solid white;
+    border-radius: 25px;
+    background-color:#9e239e;
+    padding: 10px;
+    z-index: 99999;
+    top: -10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+.dropdownDiv .dropDownProfile{
+    background-color: #0e0e28;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-radius:  20px 20px 0px 0px;
+}
+.dropDownProfile .profilePic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dropdownDiv .profilePic .profileImg img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 3px solid white;
+}
+.dropDownProfile .userInfo{
+    width: 100%;
+    margin-left: 10px;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.userInformation{
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.userInformation:nth-child(1){
+    font-family: Geometric;
+}
+
+
+.dropdownDiv .otherOptions, .dropdownDiv .logoutLink{
+    display: flex;
+    padding: 10px;
+    background-color: #0e0e28;
+    margin-top: 4px;
+    font-family: Geometric;
+    font-weight: bolder;
+    color: aliceblue;
+    min-width: 210px;
+    align-items: center;
+}
+
+.dropdownDiv .firstOption{
+    border-radius: 20px 20px 0px 0px;
+    padding: 15px 10px;
+    margin-top: 0px;
+}
+
+.dropdownDiv .otherOptions span, .logoutLink span{
+    margin-left: 15px;
+}
+.dropdownDiv .otherOptions i, .logoutLink i{
+    margin-left: 8px;
+}
+
+.dropdownDiv .logoutLink{
+    border-radius: 0px 0px 20px 20px;
+}
+
+.userInformation:nth-child(2){
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+#nLogMobTop, #lMobTop{
+    display: none;
+}
+
+#nLogWebTop, .lWebTop{
+    display: flex;
+}
+
+.dropdownDiv .otherOptions:hover, .dropdownDiv .logoutLink:hover{
+    color: aqua;
+    cursor: pointer;
+}
+
+
+.buyMenu{
+    background-color: #9e239e;
+    border-radius: 10px;
+    padding: 9px 20px;
+}
+.buyMenu:hover{
+    color: aliceblue;
+    background-color: #ed5aed;
+}
+.actionSection{
+    margin-top: 20px;
+    width: 100%;
+    min-height: 400px;
+    background-image: url('../images/background-n.png');
+    background-position:right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+}
+.actionSection .shader{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 10px 10px 40px;
+}
+
+
+.shader .topLine{
+    color: rgb(187, 181, 181);
+    font-family: Geometric;
+    font-size: large;
+}
+
+.shader .tagLine{
+    font-size: 37px;
+    color: white;
+    font-family: Geometric;
+    margin-top: 10px;
+    font-weight: 600;
+    line-height: 45px;
+}
+.tokenAction{
+    display: flex;
+}
+.leftAction, .rightAction{
+    font-size: large;
+    color: white;
+    margin: 20px 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.rightAction{
+    border-left: 4px solid white;
+    padding-left: 15px;
+    text-decoration: none;
+}
+.leftAction{
+    padding-right: 15px;
+}
+.leftAction span{
+    padding: 10px 20px;
+    background-color:blueviolet;
+    border: 2px double blueviolet;
+    border-radius: 5px;
+    color: white;
+}
+
+.rightAction span{
+    padding: 10px 20px;
+    border: 2px double white;
+    border-radius: 5px;
+    color: white;
+}
+.rightAction span a, .leftAction span a{
+    color: white;
+    text-decoration: none;
+}
+.leftAction span:hover, .leftAction span a:hover{
+    cursor: pointer;
+    color:bisque;
+    border-color: bisque;
+    background-color: #9e239e;
+}
+.rightAction span:hover, .rightAction span a:hover{
+    cursor: pointer;
+    color:bisque;
+    border-color: bisque;
+}
+.otherInfo{
+    display: block;
+    line-height: 26px;
+}
+
+.actionLine{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 10px 0px;
+}
+
+.shader .menus{
+    width: 80px;
+    margin-left: 0px;
+    margin-top: 20px;
+}
+/* Action Section */
+
+/* Token Stat Section */
+.tokenStatSection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.tokenStatSection .statTitle{
+    margin: 5px 0px 5px 0px;
+}
+.tokenStatSection .mainTitle{
+    padding-bottom: 4px;
+    border-bottom: 3px solid white;
+    font-size: 40px;
+    font-family: Geometric;
+    color: white;
+    width: auto;
+    margin-left: 30px;
+}
+
+.tokenStatSection .statSection{
+    margin: 10px 50px 30px 50px;
+    display: flex;
+    flex-direction: row;
+    /* background-color: #9e239e; */
+    border-radius: 20px;
+    /* max-width: 1000px; */
+}
+
+.tokenStatSection .statSection .leftStatSection, .tokenStatSection .statSection .rightStatSection{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    padding: 20px;
+}
+.tokenStatSection .statSection .leftStatSection{
+    padding-right: 10px;
+}
+
+.tokenStatSection .statSection .rightStatSection{
+    padding-left: 10px;
+}
+
+.statSection .leftStatSection .leftStatBox, .statSection .rightStatSection .rightStatBox{
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    background-color: rgb(14 14 40);
+    padding: 15px 15px 10px 15px;
+}
+
+.leftStatBox .statTitle, .rightStatBox .statTitle{
+    font-size: larger;
+    width: 100%;
+    padding: 10px 0px 5px 10px;
+    margin-bottom: 0px;
+}
+.leftStatBox .statTitle span, .rightStatBox .statTitle span{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-weight: bold;
+}
+
+.otherStats{
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.otherStats .stats{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    margin-top: 5px ;
+    border-radius: 7px;
+}
+
+.otherStats .stats:nth-child(even){
+background-color: rgb(14 14 40);
+}
+
+.otherStats .stats:nth-child(odd){
+    background-color: rgb(48, 4, 53);
+    }
+.otherStats .stats span{
+    width: 45%;
+    display: flex;
+    /* align-items: center; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+.otherStats .stats span:nth-child(2){
+    width: 50%;
+    display: flex;
+}
+/* Token Stat Section */
+
+/* Token About Section */
+.aboutTokenSection{
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+   
+}
+.aboutTokenSection .aboutTitle{
+    font-size: 40px;
+    font-family: Geometric;
+    color: white;
+    width: auto;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.aboutTokenSection .mainTitle{
+    padding-bottom: 4px;
+    border-bottom: 3px solid white;
+    display: inline;
+}
+
+.aboutTokenSection .aboutSection{
+    margin: 0px 50px 30px 50px;
+    display: flex;
+}
+.aboutTokenSection .aboutSection .shader{
+    width: 100%;
+    height: 100%;
+    background-color: hsla(240deg, 48.15%, 10.59%, 0.5);
+    display: flex;
+    align-items: center;
+}
+.aboutTokenSection .aboutSection .aboutLeftSection, .aboutTokenSection .aboutSection .aboutRightSection{
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+}
+.aboutTokenSection .aboutSection .aboutRightSection{
+    padding: 20px;
+}
+.aboutTokenSection .aboutSection .aboutLeftSection li{
+    font-size: 16px;
+    color: rgb(175, 175, 175);
+    margin-bottom: 20px;
+    list-style:square;
+    font-weight: bold;
+}
+.aboutTokenSection .aboutSection .aboutLeftSection li .steps{
+    color: white;
+    font-family: Geometric;
+    font-size: 20px;
+}
+.aboutTokenSection .aboutSection .aboutRightSection .rightSectionBox{
+    border-radius: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px;
+}
+.aboutTokenSection .aboutSection .aboutRightSection img{
+    /* width: 100%; */
+    height: 360px;
+}
+.aboutTokenSection .aboutSection .aboutRightSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tokenContract{
+    padding: 10px 10px 20px 20px;
+    margin: 30px 10px 0px 0px;
+    box-shadow: 0px 0px 12px 2px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.tokenContract .links{
+    display: flex;
+    /* flex-direction: column; */
+}
+.tokenContract p{
+    padding: 10px 20px;
+    margin: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.allocation{
+    padding: 10px 10px 0px 10px;
+    margin-top: 20px;
+    font-family: Geometric;
+    color: rgb(236, 236, 236);
+    font-weight: bold;
+}
+.tokenContract p:hover{
+    cursor: pointer;
+}
+.tokenContract .title4{
+    font-size: 20px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    border: none;
+    font-weight: bold;
+    padding: 10px 0px;
+}
+.tokenContract p a{
+    text-decoration: none;
+    color: white;
+}
+/* Token about section */
+
+
+.howToSection{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.howToSection .howToTitle{
+    font-size: 40px;
+    font-family: Geometric;
+    color: white;
+    width: auto;
+    margin-bottom: 10px;
+    margin-left: 35px;
+}
+
+.howToSection .howToTitle .mainTitle{
+    display: inline;
+    border-bottom: 3px solid white;
+    padding-bottom: 4px;
+}
+.howToSection .howSection{
+    display: flex;
+    justify-content: center;
+    margin: 10px 50px 30px 50px;
+}
+.howSection .shader{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.howToSection .howSection .leftHowSection{
+    color: white;
+    width: 60%;
+    padding: 20px 20px 0px 30px;
+}
+.howToSection .howSection .leftHowSection ul li{
+    color: rgb(175, 175, 175);
+    margin-top: 10px;
+    font-weight: bold;
+    list-style: decimal;
+    font-size: 16px;
+}
+.howToSection .howSection .leftHowSection ul li span{
+    font-family: Geometric;
+    color: white;
+    font-size: 20px;
+   
+}
+
+.howToSection .howSection .rightHowSection{
+    width: 40%;
+    display: flex;
+    padding: 0px 20px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Token Brand */
+.poweredSection .brandTitle{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    display: flex;
+    margin-bottom: 10px;
+    opacity: .7;
+    justify-content: center;
+    width: 100%;
+}
+.poweredSection {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  flex-wrap: wrap; /* Make sure items stay in one row initially */
+  padding: 10px 0; /* Add some spacing between rows */
+  margin: 0px 20px 40px 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(240deg, 48.15%, 10.59%, 0.5);
+  opacity: .7;
+}
+
+.brands {
+  flex: 0 0 auto; /* Let items grow as needed */
+  margin: 0 10px; /* Add some spacing between items */
+  text-align: center;
+}
+
+.brands img {
+  max-width: 100%;
+  height: auto;
+}
+
+  
+/* token brand */
+.expandMenus{
+    display: none;
+}
+
+.menusSectionFull{
+    display: none;
+}
+.menusSectionFull .menus{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.menusSectionFull .menus span{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 10px 30px;
+}
+.menusSectionFull .buyMenu{
+    margin-left: 25px;
+    margin-top: 10px;
+    width: 100px;
+}
+.closeMenus{
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 35px 10px 10px;
+}
+.closeMenus:hover{
+    color: #ed5aed;
+}
+.closeMenus i{
+    font-size: 35px;
+}
+
+
+
+
+.green{
+    color: limegreen !important;;
+}
+
+.blue{
+    color: #05f4cc  !important;;
+}
+.firstLine{
+    width: 400px;
+    margin: 10px 0px;
+    height: 1px;
+    background-color: white;
+}
+.secondLine{
+    width: 400px;
+    display: flex;
+    align-self: center;
+    margin: 30px 0px;
+    height: 5px;
+    border-radius: 5px;
+}
+.thirdLine{
+    width: 400px;
+    display: flex;
+    align-self: center;
+    margin: 45px 0px 30px 0px;
+    height: 5px;
+    border-radius: 5px;
+}
+
+
+
+.footer{
+    background-color: #080811;
+    /* min-height: 200px; */
+    width: 100%;
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid rgb(219, 219, 219);
+    
+}
+
+.footer .footerContent{
+    position: relative;
+    max-width: 1300px;
+    width: 100%;
+    margin: 35px 0px 5px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.footer .copyright{
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Geometric;
+    color: rgb(198, 198, 198);
+    padding: 20px 0px;
+}
+
+.footer .footerContent .footerLinkDivs{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 100%;
+    margin: 20px;
+    margin-right: 0px;
+    /* margin-left: 40px; */
+}
+.footer .footerContent .footerLogo{
+    width: 100%;
+}
+.footer .footerContent .footerTop{
+    position: absolute;
+    padding: 5px;
+    box-shadow: 0px 0px 8px 2px #120912;
+    border-radius: 20px;
+    top: -150px;
+    background-color:rgb(54, 22, 183);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.footerTop .headMessage{
+    color: white;
+    font-size: 24px;
+    font-family: Geometric;
+    padding: 20px;
+}
+
+.footerTop .headMessage #hint{
+    color: white;
+    font-size: 15px;
+    font-family: Geometric;
+}
+
+.footerTop .buttonDiv{
+    margin: 20px;
+    margin-top: 10px;
+}
+.footerTop .actionButton{
+    color: white;
+    font-size: samll;
+    font-family: Geometric;
+    padding: 5px 10px;
+    background-color: blueviolet;
+    border: 1px solid blueviolet;
+    border-radius: 3px;
+    display: inline;
+}
+
+.footerTop .actionButton:hover{
+    background-color: #9e239e;
+    cursor: pointer;
+}
+.footer .footerContent .footerLinkDivs .links{
+    font-family: Geometric;
+    cursor: pointer;
+    margin: 7px;
+}
+.footer .footerContent .footerLinkDivs .links a{
+    color: white;
+    text-decoration: none;
+}
+.footer .footerContent .footerLinkDivs .links:hover, .footerContent .footerLinkDivs .links a:hover{
+    color: aqua;
+}
+@media screen and (max-width: 851px) {
+    .dropdownDiv{
+        right: 25px;
+    }
+    .howSection .shader{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        align-items: center;
+    }
+    .howToSection .howSection{
+        align-items: center;
+        /* margin: 0px 5px; */
+    }
+    .howToSection .howSection .leftHowSection, .howToSection .howSection .rightHowSection{
+        width: 100%;
+    }
+    .aboutTokenSection .aboutSection .shader{
+        flex-direction: column;
+     }
+     .aboutTokenSection .aboutSection .aboutLeftSection, .aboutTokenSection .aboutSection .aboutRightSection{
+         width: 100%;
+         height: 100%;
+         padding: 10px;
+     }
+    .aboutTokenSection .aboutSection .shader{
+        width: 100%;
+        height: 100%;
+        background-color: hsla(240deg, 48.15%, 10.59%, 0.9);
+    }
+    .aboutTokenSection .aboutSection .aboutLeftSection{
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+    .aboutTokenSection .aboutSection .aboutRightSection{
+        margin-top: 30px;
+    }
+
+
+    .tokenStatSection .statSection{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 10px;
+        border-radius: 20px;
+        margin: 5px 10px 10px 10px;
+    }
+    .tokenStatSection .statSection .leftStatSection, .tokenStatSection .statSection .rightStatSection{
+        width: 100%;
+        padding: 0px;
+    }
+    .statSection .leftStatSection .leftStatBox, .statSection .rightStatSection .rightStatBox{
+        margin: 20px;
+    }
+    .leftInfo, .rightInfo{
+        font-size: 15px;
+    }
+    .shader .tagLine{
+        font-size: 33px;
+    }
+    .actionSection .shader{
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        padding: 50px 0px 20px 0px;
+        background-color: hsla(240deg, 48.15%, 10.59%, 0.7);
+
+    }
+    .actionSection .tagLine{
+        text-align: center;
+    }
+    .actionLine{
+        text-align: center;
+    }
+    .actionSection{
+        background-position: center;
+        flex-direction: column-reverse;
+    }
+    .expandMenus{
+        display: flex;
+        width: 100%;
+        color: white;
+        justify-content: flex-end;
+        margin-right: 40px;
+        align-items: center;
+    }
+    .expandMenus:hover{
+        color: #ed5aed;
+    }
+
+    .menusSectionFull{
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 9999;
+        flex-direction: column;
+        background-color: hsl(240deg 48.15% 10.59%);
+        left: 0;
+        top: 0;
+    }
+}
+
+
+
+@media screen and (max-width: 550px) {
+    .footer .footerContent{
+        flex-direction: column;
+        padding-top: 30px;
+        align-items: center;
+    }
+    .footer .footerContent .footerLinkDivs{
+        margin: 20px 0px 20px 0px;
+    }
+    .footer .footerContent .footerLinkDivs .links{
+        margin: 7px 20px 7px 50px;
+    }
+
+    .footer .footerTop{
+        width: 90%;
+    }
+    .v-spacer-tk{
+        height: 35px;
+    }
+    #linebreak{
+        display: none;
+    }
+    .logoSection .logo{
+        display: none;
+    }
+    .brand {
+        margin: 0px 5px 40px 5px;
+    }
+
+    .brands img{
+        width: 150px;
+    }
+
+    .firstLine{
+        display: none;
+    }
+    .allocation{
+        margin-top: 30px;
+    }
+    .aboutTokenSection .aboutSection{
+        margin: 0px 30px 10px 30px;
+        display: flex;
+    }
+    .allocation{
+        padding: 10px 10px 0px 10px;
+        margin-top: 30px;}
+
+    .tokenContract{
+        margin-right: 0px;
+        padding-left: 0px;
+        box-shadow: unset;
+    }
+    .tokenContract .title4{
+        padding-left: 0px;
+    }
+    .aboutTokenSection .aboutSection .aboutRightSection{
+        padding: 0px;
+    }
+    .aboutTokenSection .aboutSection .aboutRightSection .rightSectionBox{
+        box-shadow: unset;
+        padding-bottom: 0px;
+    }
+    .aboutTokenSection .aboutTitle{
+        font-size: 30px;
+    }
+
+    .howToSection .howToTitle{
+        font-size: 30px;
+    }
+    .secondLine, .thirdLine{
+        display: flex;
+        align-self: center;
+        margin: 10px 0px 30px 0px;
+        height: 4px;
+        width: 200px;
+        /* background-color: white; */
+    }
+    .thirdLine{
+        margin-top: 40px;
+    }
+    .actionSection .tagLine{
+        text-align: center;
+        font-size: 30px;
+    }
+    .actionSection .actionLine{
+        margin: 15px;
+    }
+
+    .actionSection .tokenAction{
+        margin-top: 30px;
+    }
+    .tokenStatSection .statSection{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 0px 15px 0px;
+        border-radius: 20px;
+        margin: 5px 10px 10px 10px;
+        background-color: unset;
+    }
+    .tokenStatSection .mainTitle, .tokenStatSection .statTitle{
+        font-size: 30px;
+        margin-bottom: 0px;
+    }
+
+    .tokenStatSection .mainTitle{
+        margin-left: 20px;
+    }
+    .otherStats .stats span:nth-child(1) {
+        margin-right: 10px;
+    }
+    .otherStats .stats span:nth-child(2) {
+        margin-left: 20px;
+    }
+    .tokenStatSection .boxTitle{
+        font-size: 22px;
+    }
+    .tokenStatSection .statSection .leftStatSection, .tokenStatSection .statSection .rightStatSection{
+        width: 100%;
+        padding: 0px;
+    }
+    .statSection .leftStatSection .leftStatBox, .statSection .rightStatSection .rightStatBox{
+        margin: 15px 5px;
+        border: 1px solid white;
+        box-shadow: unset;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .walletAddress{
+        display: none !important;
+    }
+    .profileButton{
+        padding: 5px;
+    }
+    .menusSection .wallet{
+        padding: 0px;
+    }
+}
