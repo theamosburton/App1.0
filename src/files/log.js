@@ -102,7 +102,7 @@ window.onload = async function () {
         return null;
     }
 }
-
+// Applying and checking referal
 async function applyReferal() {
     createDotsAnimation('applyReferal', 7, 100);
     var applyRefLink = document.getElementById('applyReferalLink');
@@ -134,6 +134,8 @@ async function fetchRef(referalCode) {
     const ref = await response.json();
     return ref.referalStatus;
 }
+
+// Wallet Creation
 function createWallet(){
     let referalCode = document.getElementById('referalInput').value;
     let loginArea = document.getElementById("loginViewArea");
@@ -165,47 +167,6 @@ function createWallet(){
     `;
     refreshCaptcha(false, "both");
 }
-function refreshCaptcha(externally, which){
-    let refreshDiv = document.querySelector('#refreshDiv i');
-    if (externally === true) {
-        refreshDiv.style.animation = "rotate 2s linear infinite";
-    }
-    
-    if (which == 'both') {
-        let captcha2Div = document.getElementById("captcha2Div");
-        let cap2Load = document.createElement("div");
-        cap2Load.id = 'cap2Load';
-        cap2Load.style.display = 'flex'
-        captcha2Div.appendChild(cap2Load)
-        createDotsAnimation('cap2Load', 10, 100);
-        getCaptcha1()
-        getCaptcha2()
-    }else if(which == 'one'){
-        let captcha1Div = document.getElementById("captcha1Div");
-        let cap1Load = document.createElement("div");
-        cap1Load.id = 'cap1Load';
-        cap1Load.style.display = 'flex'
-        captcha1Div.appendChild(cap1Load)
-        requestAnimationFrame(() =>{
-            createDotsAnimation('cap1Load', 10, 100);
-        })
-        getCaptcha1()
-    }else if(which == 'two'){
-        let captcha2Div = document.getElementById("captcha2Div");
-        let cap2Load = document.createElement("div");
-        cap2Load.id = 'cap2Load';
-        cap2Load.style.display = 'flex'
-        captcha2Div.appendChild(cap2Load)
-        requestAnimationFrame(() =>{
-            createDotsAnimation('cap2Load', 10, 100);
-        })
-        
-        getCaptcha2()
-    }
-   
-    refreshDiv.style.animation = "none";
-}
-
 function createWalletNotBot(referalCode){
     let captchaToken1 = document.getElementById("captchaToken1");
     let captchaToken2 = document.getElementById("captchaToken2");
@@ -219,7 +180,6 @@ function createWalletNotBot(referalCode){
         <div id="loadingMessage">Verifying captcha...</div>
     `;
     document.body.appendChild(loadingOverlay);
-    createDotsAnimation('overlayAnim', 10, 100);
     if (captchaValue1.length < 4 || captchaToken2 < 4) {
         refreshCaptcha(false)
         captchaMessage.innerHTML = "Invalid Captcha";
@@ -268,8 +228,9 @@ function createWalletNotBot(referalCode){
                 <div id='overlayAnim' style='display:flex;'></div>
                 <div id="loadingMessage">Generating a wallet...</div>
                 `;
+                createDotsAnimation('overlayAnim', 10, 100);
                 setTimeout(() => {
-                    showNewWallet(verifyCaptcha);
+                    renderNewWallet(verifyCaptcha);
                 }, 1000);
             }
         }
@@ -277,120 +238,7 @@ function createWalletNotBot(referalCode){
     }
 
 }
-
-function recoverWallet(){
-    let loginArea = document.getElementById("loginViewArea");
-    loginArea.innerHTML = `
-    <i class="fa fa-arrow-left goBack" onclick="gotoMainScreen()"></i>
-    <div class="loginTitle verificationTitle">
-        <span>Human Verification</span>
-    </div>
-    <div id="captchaMessage"></div>
-    <div id="captcha1Div">
-    </div>
-
-    <span id="captchaToken1" style="display: none;"></span>
-    <div class="captchaFillDiv">
-        <input class="captchaInput" type="text" name="" id="captchaValue1" placeholder="Enter captcha 1">
-        <span id="refreshDiv" class="refreshIcon" onclick="refreshCaptcha(true, 'one')"><i class="fa fa-refresh"></i></span>
-    </div>
-    
-
-    <div id="captcha2Div">
-    </div>
-    
-    <span id="captchaToken2" style="display: none;"></span>
-    <div class="captchaFillDiv">
-        <input class="captchaInput" type="text" name="" id="captchaValue2" placeholder="Enter captcha 2"> 
-        <span id="refreshDiv" class="refreshIcon" onclick="refreshCaptcha(true, 'two')"><i class="fa fa-refresh"></i></span>
-    </div>
-
-    <div class="loginValueInputDiv">
-        <input class="loginValueInput" type="text" name="" id="loginValueInput" placeholder="Enter private key or seed phrase">
-    </div>
-    <div class="loginModes">
-        <a class="anon-btn" onclick="botlessLogin()" id="createWallet"> Login/Recover</a>
-    </div>
-    `;
-    refreshCaptcha(false, "both");
-}
-
-
-function botlessLogin(){
-    let captchaToken1 = document.getElementById("captchaToken1");
-    let captchaToken2 = document.getElementById("captchaToken2");
-    let captchaValue1 = document.getElementById("captchaValue1").value;
-    let captchaValue2 = document.getElementById("captchaValue2").value;
-    let captchaMessage = document.getElementById("captchaMessage");
-    let loginValueInput = document.getElementById("loginValueInput");
-    let loginValue = loginValueInput.value;
-    let loadingOverlay = document.createElement('div');
-    loadingOverlay.id = "loadingOverlay";
-    loadingOverlay.innerHTML = `
-        <div id='overlayAnim' style='display:flex;'></div>
-        <div id="loadingMessage">Verifying captcha...</div>
-    `;
-    document.body.appendChild(loadingOverlay);
-    createDotsAnimation('overlayAnim', 10, 100);
-    if (captchaValue1.length < 4 || captchaToken2 < 4) {
-        refreshCaptcha(false)
-        captchaMessage.innerHTML = "Invalid/empty captcha entered";
-        loadingOverlay.style.display = "none";
-    }else{
-        async function loginWallet(){
-            let captcha1 = document.getElementById("captchaValue1");
-            let captcha2 = document.getElementById("captchaValue2");
-            const logUrl = '/API/captchaVarification';
-            var encyDat = {
-                CapT1: captchaToken1.innerHTML,
-                cap1: captchaValue1,
-                CapT2: captchaToken2.innerHTML,
-                cap2: captchaValue2,
-                purpose: "recovery",
-                recoveryPhrase: loginValue
-            };
-            const response = await fetch(logUrl, {
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(encyDat)
-            });
-            var verifyCaptcha = await response.json();
-            if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "both"){
-                loadingOverlay.style.display = "none";
-                captcha1.value = '';
-                captcha2.value = '';
-                captchaMessage.innerHTML = "Wrong captcha entered";
-                refreshCaptcha(false, "both")
-
-            }else if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "one"){
-                loadingOverlay.style.display = "none";
-                captcha1.value = "";
-                captchaMessage.innerHTML = "Refill 1st Captcha";
-                refreshCaptcha(false, "one")
-
-            }else if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "two"){
-                loadingOverlay.style.display = "none";
-                captcha2.value = "";
-                captchaMessage.innerHTML = "Refill 2nd Captcha";
-                refreshCaptcha(false, "two")
-            }else{
-                loadingOverlay.innerHTML = `
-                <div id='overlayAnim' style='display:flex;'></div>
-                <div id="loadingMessage">Verifying your wallet...</div>
-                `;
-                createDotsAnimation('overlayAnim', 10, 100);
-                setTimeout(() => {
-                    loginRecoverWallet(verifyCaptcha);
-                }, 1000);
-            }
-        }
-        loginWallet()
-    }
-
-}
-function showNewWallet(walletInfo){
+function renderNewWallet(walletInfo){
     let loadingOverlay = document.getElementById('loadingOverlay');
     loadingOverlay.style.display = "none";
     let loginArea = document.getElementById("loginViewArea");
@@ -453,8 +301,120 @@ function showNewWallet(walletInfo){
     `;
     }
 }
+// Wallet Creation
 
-function loginRecoverWallet(loginRecoverWallet){
+
+// Wallet recovery and login
+function recoverWallet(){
+    let loginArea = document.getElementById("loginViewArea");
+    loginArea.innerHTML = `
+    <i class="fa fa-arrow-left goBack" onclick="gotoMainScreen()"></i>
+    <div class="loginTitle verificationTitle">
+        <span>Human Verification</span>
+    </div>
+    <div id="captchaMessage"></div>
+    <div id="captcha1Div">
+    </div>
+
+    <span id="captchaToken1" style="display: none;"></span>
+    <div class="captchaFillDiv">
+        <input class="captchaInput" type="text" name="" id="captchaValue1" placeholder="Enter captcha 1">
+        <span id="refreshDiv" class="refreshIcon" onclick="refreshCaptcha(true, 'one')"><i class="fa fa-refresh"></i></span>
+    </div>
+    
+
+    <div id="captcha2Div">
+    </div>
+    
+    <span id="captchaToken2" style="display: none;"></span>
+    <div class="captchaFillDiv">
+        <input class="captchaInput" type="text" name="" id="captchaValue2" placeholder="Enter captcha 2"> 
+        <span id="refreshDiv" class="refreshIcon" onclick="refreshCaptcha(true, 'two')"><i class="fa fa-refresh"></i></span>
+    </div>
+
+    <div class="loginValueInputDiv">
+        <input class="loginValueInput" type="text" name="" id="loginValueInput" placeholder="Enter private key or seed phrase">
+    </div>
+    <div class="loginModes">
+        <a class="anon-btn" onclick="recoverWalletNotBot()" id="createWallet"> Login/Recover</a>
+    </div>
+    `;
+    refreshCaptcha(false, "both");
+}
+function recoverWalletNotBot(){
+    let captchaToken1 = document.getElementById("captchaToken1");
+    let captchaToken2 = document.getElementById("captchaToken2");
+    let captchaValue1 = document.getElementById("captchaValue1").value;
+    let captchaValue2 = document.getElementById("captchaValue2").value;
+    let captchaMessage = document.getElementById("captchaMessage");
+    let loginValueInput = document.getElementById("loginValueInput");
+    let loginValue = loginValueInput.value;
+    let loadingOverlay = document.createElement('div');
+    loadingOverlay.id = "loadingOverlay";
+    loadingOverlay.innerHTML = `
+        <div id='overlayAnim' style='display:flex;'></div>
+        <div id="loadingMessage">Verifying captcha...</div>
+    `;
+    document.body.appendChild(loadingOverlay);
+    if (captchaValue1.length < 4 || captchaToken2 < 4) {
+        refreshCaptcha(false)
+        captchaMessage.innerHTML = "Invalid/empty captcha entered";
+        loadingOverlay.style.display = "none";
+    }else{
+        async function loginWallet(){
+            let captcha1 = document.getElementById("captchaValue1");
+            let captcha2 = document.getElementById("captchaValue2");
+            const logUrl = '/API/captchaVarification';
+            var encyDat = {
+                CapT1: captchaToken1.innerHTML,
+                cap1: captchaValue1,
+                CapT2: captchaToken2.innerHTML,
+                cap2: captchaValue2,
+                purpose: "recovery",
+                recoveryPhrase: loginValue
+            };
+            const response = await fetch(logUrl, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(encyDat)
+            });
+            var verifyCaptcha = await response.json();
+            if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "both"){
+                loadingOverlay.style.display = "none";
+                captcha1.value = '';
+                captcha2.value = '';
+                captchaMessage.innerHTML = "Wrong captcha entered";
+                refreshCaptcha(false, "both")
+
+            }else if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "one"){
+                loadingOverlay.style.display = "none";
+                captcha1.value = "";
+                captchaMessage.innerHTML = "Refill 1st Captcha";
+                refreshCaptcha(false, "one")
+
+            }else if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "two"){
+                loadingOverlay.style.display = "none";
+                captcha2.value = "";
+                captchaMessage.innerHTML = "Refill 2nd Captcha";
+                refreshCaptcha(false, "two")
+            }else{
+                loadingOverlay.innerHTML = `
+                <div id='overlayAnim' style='display:flex;'></div>
+                <div id="loadingMessage">Verifying your wallet...</div>
+                `;
+                createDotsAnimation('overlayAnim', 10, 100);
+                setTimeout(() => {
+                    renderRecoveredWallet(verifyCaptcha);
+                }, 1000);
+            }
+        }
+        loginWallet()
+    }
+
+}
+function renderRecoveredWallet(loginRecoverWallet){
     let loginArea = document.getElementById("loginViewArea");
     if (loginRecoverWallet.purpose == "Recovery") {
         if (loginRecoverWallet.status) {
@@ -541,6 +501,8 @@ function loginRecoverWallet(loginRecoverWallet){
             `;
     }
 }
+// Wallet recovery and login
+
 
 async function getCaptcha1(){
     const logUrl = '/API/captcha/generateCaptcha';
@@ -559,7 +521,6 @@ async function getCaptcha1(){
         document.getElementById("captchaValue1").style.display = "flex"
         captchaToken1.innerHTML = getCaptcha1.token;
 }
-
 async function getCaptcha2(){
     const logUrl = '/API/captcha/generateCaptcha';
     var encyDat = {};
@@ -576,7 +537,46 @@ async function getCaptcha2(){
     let captchaToken2 = document.getElementById('captchaToken2');
     captchaToken2.innerHTML = getCaptcha2.token;
 }
-
+function refreshCaptcha(externally, which){
+    let refreshDiv = document.querySelector('#refreshDiv i');
+    if (externally === true) {
+        refreshDiv.style.animation = "rotate 2s linear infinite";
+    }
+    
+    if (which == 'both') {
+        let captcha2Div = document.getElementById("captcha2Div");
+        let cap2Load = document.createElement("div");
+        cap2Load.id = 'cap2Load';
+        cap2Load.style.display = 'flex'
+        captcha2Div.appendChild(cap2Load)
+        createDotsAnimation('cap2Load', 10, 100);
+        getCaptcha1()
+        getCaptcha2()
+    }else if(which == 'one'){
+        let captcha1Div = document.getElementById("captcha1Div");
+        let cap1Load = document.createElement("div");
+        cap1Load.id = 'cap1Load';
+        cap1Load.style.display = 'flex'
+        captcha1Div.appendChild(cap1Load)
+        requestAnimationFrame(() =>{
+            createDotsAnimation('cap1Load', 10, 100);
+        })
+        getCaptcha1()
+    }else if(which == 'two'){
+        let captcha2Div = document.getElementById("captcha2Div");
+        let cap2Load = document.createElement("div");
+        cap2Load.id = 'cap2Load';
+        cap2Load.style.display = 'flex'
+        captcha2Div.appendChild(cap2Load)
+        requestAnimationFrame(() =>{
+            createDotsAnimation('cap2Load', 10, 100);
+        })
+        
+        getCaptcha2()
+    }
+   
+    refreshDiv.style.animation = "none";
+}
 function gotoMainScreen(){
     let loginArea = document.getElementById("loginViewArea");
     loginArea.innerHTML = `
