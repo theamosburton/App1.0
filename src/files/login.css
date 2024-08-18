@@ -69,7 +69,7 @@ body{
 }
 .walletInfo .walletPhrase .title{
     text-underline-offset: 3px;
-    font-size: 13px;
+    font-size: 18px;
     text-transform: capitalize;
     display: flex;
     align-items:  center;
@@ -97,7 +97,7 @@ body{
     width: auto;
 }
 .recoveryPhraseField ul li{
-    font-size: 12px;
+    font-size: 14px;
     list-style: decimal;
     display: flex;
     flex-wrap: wrap; 
@@ -118,7 +118,7 @@ body{
     max-width: 220px;
 }
 .instructions p{
-    font-size: 10px;
+    font-size: 14px;
     margin-top: 3px;
     text-transform: none;
 }
@@ -140,7 +140,7 @@ body{
 .walletInfo .recoveryFile .title{
     text-underline-offset: 3px;
     text-decoration: underline;
-    font-size: 13px;
+    font-size: 18px;
     text-transform: capitalize;
 }
 /* Recovery File */
@@ -152,7 +152,7 @@ body{
 .walletInfo .walletAddress .title{
     text-decoration: underline;
     text-underline-offset: 3px;
-    font-size: 13px;
+    font-size: 18px;
     text-transform: capitalize;
 }
 .walletInfo .walletAddress input, .recoveryFileField input{
@@ -162,7 +162,7 @@ body{
     color: #cab8ec;
     padding: 5px;
     height: 100%;
-    font-size: 12px;
+    font-size: 14px;
     font-family: Geometric;
     white-space: nowrap;
     overflow: hidden;
@@ -180,11 +180,9 @@ body{
     justify-content: center;
     align-items: center;
     text-align: left;
-    /* margin-top: 5px; */
     border-radius: 5px;
 }
 .recoveryFileField{
-    /* margin-bottom: 10px; */
     justify-content: flex-start;
 }
 .walletAddressField{
@@ -201,7 +199,7 @@ body{
     color: #16d355 !important;
 }
 .successMessage{
-    font-size: 15px;
+    font-size: 22px;
     color: #16d355;
     margin-bottom: 0px;
     text-transform: none;
@@ -215,7 +213,7 @@ body{
 }
 .goToWallet span{
     color: white;
-    font-size: 12px;
+    font-size: 14px;
     padding: 5px 12px;
     border: 1px solid grey;
     border-radius: 5px;
@@ -230,7 +228,7 @@ body{
     color: lime;
     font-family: Geometric;
     text-transform: uppercase;
-    margin-top: 10px;
+    margin-top: 30px;
     font-size: 10px;
     text-align: center;
 }
@@ -494,7 +492,7 @@ body{
     .viewArea{
         border: 0px;
         box-shadow: none;
-        padding: 20px;
+        padding: 20px 38px;
         width: 100%;
         margin-top: 20px;
     }
@@ -508,5 +506,14 @@ body{
         max-width: none;
         margin-top: 20px;
         font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 300px){
+    .viewArea{
+        padding: 20px 25px;
+    }
+    .anon-btn{
+        font-size: 14px;
     }
 }
