@@ -1,7 +1,7 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const url = process.env.dbURL;
-const dbName = 'shellcoin';
+const dbName = 'tuloByte';
 const client = new MongoClient(url, {
     serverApi: {
       version: ServerApiVersion.v1,

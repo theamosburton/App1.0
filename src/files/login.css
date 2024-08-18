@@ -12,27 +12,32 @@ body{
     margin: 0;
     width: 100vw;
     height: 100%;
-    flex-direction: column;
     background-color:hsl(240deg 48.15% 10.59%);
     background-image: url('/images/loginback.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size:auto;
     background-color: hsl(240deg 48.15% 10.59%);
     background-blend-mode: luminosity;
     backdrop-filter: blur(1px);
+    overflow: hidden;
 }
 
 .topViewBox{
     max-width: 1400px;
-    width: 100%;
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto;
+    overflow-clip-margin: 1px;
+    /* position: absolute; */
+    /* z-index: 9999; */
 }
 
 .viewArea{
+    position: relative;
     padding: 35px 35px 35px 35px;
     border: 1px solid #cab8ec;
     border-radius: 10px;
@@ -43,6 +48,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow: auto;
 }
 .loginTitle{
     margin-bottom: 18px;
@@ -51,7 +57,6 @@ body{
     color: aliceblue;
     display: flex;
     justify-content: center;
-    align-items: center;
     text-transform: uppercase;
     text-align: center;
 }
@@ -59,10 +64,18 @@ body{
     text-transform: capitalize;
 }
 .walletInfo{
-    margin-top: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     flex-direction: column;
 }
-
+.topMessage{
+    max-width: 220px;
+    font-size: 12px;
+    color: rgb(244, 72, 9);
+    text-transform: none;
+    margin: 8px 0px 0px 0px;
+    text-align: left;
+}
 /* Recovery Phrase */
 .walletInfo .walletPhrase{
     margin-top: 10px;
@@ -70,8 +83,12 @@ body{
     text-align: left;
 }
 .walletInfo .walletPhrase .title{
+    text-underline-offset: 3px;
     font-size: 12px;
     text-transform: capitalize;
+    display: flex;
+    align-items:  center;
+    text-decoration: underline;
 }
 .walletPhrase .recoveryPhraseField{
     margin-top: 10px;
@@ -79,38 +96,65 @@ body{
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
-    padding: 5px;
 }
 .recoveryPhraseField ul{
     max-width: 200px;
     display: flex;
     flex-wrap: wrap; 
-    align-items: center;
-    justify-content: center;
     margin-bottom: 10px;
 }
+.applyReferalLink .referalCode{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    max-width: 180px !important;
+    margin-top: 5px;
+    width: auto;
+}
 .recoveryPhraseField ul li{
-    text-align: center;
     font-size: 10px;
     list-style: decimal;
     display: flex;
     flex-wrap: wrap; 
-    padding: 5px 10px;
     color: #cab8ec;
     border-radius: 3px;
     margin-left: 10px;
     margin-top: 10px;
-    border: 1px solid grey;
+    text-transform: none;
+}
+.smallTitle{
+    font-size: 8px;
+    text-transform: capitalize;
+    margin-left: 5px;
+    color: orangered;
 }
 /* Recovery Phrase */
+.instructions{
+    max-width: 220px;
+}
+.instructions p{
+    font-size: 10px;
+    margin-top: 3px;
+    text-transform: none;
+}
 
+.downloadLink{
+    color: aqua;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+.downloadLink:hover{
+    color: blueviolet;
+    cursor: pointer;
+}
 /* Recovery File */
 .walletInfo .recoveryFile{
-    margin-top: 10px;
     width: 100%;
     text-align: left;
 }
 .walletInfo .recoveryFile .title{
+    text-underline-offset: 3px;
+    text-decoration: underline;
     font-size: 12px;
     text-transform: capitalize;
 }
@@ -121,42 +165,81 @@ body{
     margin-top: 10px;
 }
 .walletInfo .walletAddress .title{
+    text-decoration: underline;
+    text-underline-offset: 3px;
     font-size: 12px;
     text-transform: capitalize;
 }
-.walletInfo .walletAddress input{
+.walletInfo .walletAddress input, .recoveryFileField input{
     background-color: transparent;
     border: 0px;
-    border-right: 1px solid grey;
     outline: none;
     color: #cab8ec;
     padding: 5px;
     height: 100%;
+    font-size: 12px;
+    font-family: Geometric;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
-.walletInfo .walletAddress i{
+
+
+.walletInfo .walletAddress i, .recoveryFile i{
     margin: 5px;
     color: rgb(201, 193, 182);
 }
-.walletInfo .walletAddress .walletAddressField{
+.walletAddressField, .recoveryFileField{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: left;
-    border: 1px solid grey;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     border-radius: 5px;
 }
-.walletInfo .walletAddress .walletAddressField i:hover{
+.recoveryFileField{
+    /* margin-bottom: 10px; */
+    justify-content: flex-start;
+}
+.walletAddressField{
+    justify-content: flex-start;
+    border: none;
+}
+.recoveryFileField i:hover{
     color: white;
     cursor: pointer;
 }
+
+.walletAddressField input{
+    border: none !important;
+    color: #16d355 !important;
+}
 .successMessage{
-    font-size: 10px;
+    font-size: 13px;
     color: #16d355;
+    margin-bottom: 0px;
+    text-transform: none;
 }
 .successIcon img{
     width: 30px;
     height: 30px;
+}
+.goToWallet{
+    margin-top: 12px;
+}
+.goToWallet span{
+    color: white;
+    font-size: 12px;
+    padding: 5px 12px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.goToWallet span:hover{
+    cursor: pointer;
+    
+    color: rgb(9, 166, 255);
+    border: 2px solid;
 }
 .anonMessage{
     color: lime;
@@ -171,7 +254,27 @@ body{
 }
 #captchaMessage{
     font-family: Geometric;
-    color: yellowgreen;
+    color: orangered;
+    align-self: flex-start;
+    margin-left: 10px;
+}
+#loadingOverlay{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #47b575ce;
+}
+#loadingMessage{
+    font-family: Geometric;
+    color: #0a001d;
+    margin-top: 10px;
+}
+#overlayAnim div{
+    background-color: #0a001d;
 }
 .captchaInput{
     margin: 15px;
@@ -186,42 +289,95 @@ body{
 .anon-btn{
     background-color: #ffffff;
     color: #3e0707;
-    padding: 10px 15px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 20px 2px 5px 2px;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 25px;
     font-family: Geometric;
     display: flex;
     align-items: center;
 }
 
-.anon-btn{
-    padding: 10px 20px;
-    border-radius: 25px;
-    
+.loginWallet{
+    padding: 11px 20px;
 }
 .anon-btn:hover{
-    background-color: rgb(112, 56, 134);
-    color: #ffffff;
+    background-color: #c6ced0;
+    
 }
 .refreshIcon{
     padding: 10px;
-    margin-right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: transparent;
 }
 .refreshIcon:hover{
-    background-color: transparent;
-    
+    cursor: pointer;
 }
 .refreshIcon i{
     color: blueviolet;
+}
+.refreshIcon i:hover{
+    color: rgb(166, 135, 195);
+}
+.errorMessage{
+    margin-top: 0px;
+    font-size: 14px;
+    color: rgb(255, 140, 0);
+    text-align: center;
+    font-family: Geometric;
+    margin-bottom: 10px;
+}
+.redirectingMessage{
+    margin-top: 10px;
+    font-size: 13px;
+    color: lime;
+    text-align: center;
+    font-family: Geometric;
+}
+.s15{
+    font-size: 15px;
+}
+.goBack{
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.goBack:hover{
+    color: #cab8ec;
+    cursor: pointer;
+}
+.errorTitle{
+    margin-bottom: 10px;
+    color: red;
+    text-transform: capitalize;
+}
+.captchaFillDiv{
+    display: flex;
+}
+.loginValueInputDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.loginValueInputDiv .loginValueInput{
+    width: 80%;
+    border: 1px solid grey;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Geometric;
+    color: white;
+
 }
 @keyframes rotate {
     from {
@@ -235,6 +391,11 @@ body{
     height: 25px;
     width: 25px;
     margin-right: 12px;
+}
+
+.anon-btn .recover{
+    height: 22px;
+    width: 20px;
 }
 
 
@@ -289,10 +450,11 @@ body{
     font-size: small;
     font-family: Geometric;
 }
-.applyReferalLink span{
+.applyReferalLink{
     display: flex;
     width: 100%;
     justify-content: center;
+    align-items: center;
 }
 .applyReferalLink:hover{
     cursor: pointer;
@@ -330,7 +492,7 @@ body{
     }
     
     .applyReferalLink{
-        font-size: large;
+        font-size: 14px;
     }
 
     .agreement{

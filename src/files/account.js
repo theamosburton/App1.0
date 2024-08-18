@@ -1,9 +1,3 @@
-function handleCredentialResponse(response) {
-    console.log("Encoded JWT ID token: " + response.credential);
-    // You can send this token to your server for further processing
-}
-
-
 function hideDropdown(id) {
     var dropdown = document.getElementById(id);
     if (dropdown) {

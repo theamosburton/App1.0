@@ -32,12 +32,6 @@ function createDotsAnimation(containerId, maxDots, interval) {
     setInterval(animateDots, interval);
 }
 
-async function fetchRef(referalCode) {
-    const response = await fetch(`/API/checkReferal?ref=${referalCode}`);
-    const ref = await response.json();
-    return ref.referalStatus;
-}
-
 function setCookie(name, value, days, secure) {
     const expires = new Date();
     expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));

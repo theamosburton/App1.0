@@ -3,7 +3,12 @@ window.onload = async function () {
     var referer = document.getElementById('applyReferer');
     var applyRefLink = document.getElementById('applyReferalLink');
     var referalInput = document.getElementById('referalInput');
-    var getCookie = getCookie('ref');
+    var getRefCookie = getCookie('ref');
+    const currentUrl = window.location.href;
+    const urlObj = new URL(currentUrl);
+    let refValue = urlObj.searchParams.get("ref");
+
+
 
     function createDotsAnimation(containerId, maxDots, interval) {
         const dotContainer = document.getElementById(containerId);
@@ -48,23 +53,31 @@ window.onload = async function () {
         return ref.referalStatus;
     }
 
+    if (getRefCookie != null) {
+        refValue = getRefCookie;
+    }else if (refValue != null && refValue.length > 0) {
+        refValue = refValue;
+    }else{
+        refValue = null;
+    }
     
-    if (getCookie != null) {
+    if (refValue != null) {
         referer.style.display == 'none';
-        var refStatus = await fetchRef(getCookie);
+        var refStatus = await fetchRef(refValue);
         if(refStatus){
             applyRefLink.style.color = 'rgb(0, 166, 255)';
-            applyRefLink.innerHTML = `<span>Referal code applied</span> <span><b>${getCookie}</b></span>`;
-            referalInput.value = getCookie;
+            applyRefLink.innerHTML = `<span>Referal code applied</span> <span class="referalCode">${refValue}</span>`;
+            referalInput.value = refValue;
             referer.style.display = 'none';
             applyReferal.innerHTML = 'Update';
             referalInput.style.color = 'rgb(10, 151, 10)';
             applyRefLink.style.flexDirection = 'column';
+            setCookie('ref', refValue, 999999, false);
         }else{
             applyRefLink.style.color = 'tomato';
-            applyRefLink.innerHTML = `<span>Invalid referal code</span> <span><b>${getCookie}</b></span>`;
+            applyRefLink.innerHTML = `<span>Invalid referal code</span> <span class="referalCode">${refValue}</span>`;
             applyReferal.innerHTML = 'Update';
-            referalInput.value = getCookie;
+            referalInput.value = refValue;
             referalInput.style.color = '#FF6347';
             referer.style.display = 'flex';
             applyRefLink.style.flexDirection = 'column';
@@ -101,7 +114,7 @@ async function applyReferal() {
     var referer = document.getElementById('applyReferer');
     if(refStatus){
         applyRefLink.style.color = 'rgb(0, 166, 255)';
-        applyRefLink.innerHTML = `<span>Referal code applied</span> <span><b>${refValue}</b></span>`;
+        applyRefLink.innerHTML = `<span>Referal code applied</span> <span class="referalCode"><b>${refValue}</b></span>`;
         setCookie('ref', refValue, 999999, false);
         referer.style.display = 'none';
         applyReferal.innerHTML = 'Update';
@@ -109,39 +122,45 @@ async function applyReferal() {
         applyReferal.style.backgroundColor = 'slateblue';
     }else{
         applyRefLink.style.color = 'tomato';
-        applyRefLink.innerHTML = `<span>Invalid referal code</span> <span><b>${refValue}</b></span>`;
+        applyRefLink.innerHTML = `<span>Invalid referal code</span> <span class="referalCode"><b>${refValue}</b></span>`;
         applyReferal.innerHTML = 'Update';
         referalInput.style.color = '#FF6347';
         referer.style.display = 'flex';
         applyReferal.style.backgroundColor = 'slateblue';
     }
 }
-
-
-
-
-
+async function fetchRef(referalCode) {
+    const response = await fetch(`/API/checkReferal?ref=${referalCode}`);
+    const ref = await response.json();
+    return ref.referalStatus;
+}
 function createWallet(){
+    let referalCode = document.getElementById('referalInput').value;
     let loginArea = document.getElementById("loginViewArea");
     loginArea.innerHTML = `
+    <i class="fa fa-arrow-left goBack" onclick="gotoMainScreen()"></i>
     <div class="loginTitle verificationTitle">
-                <span>Human Verification</span>
+        <span>Human Verification</span>
     </div>
-    <span id="captchaMessage"></span>
+    <div id="captchaMessage"></div>
     <div id="captcha1Div">
     </div>
 
     <span id="captchaToken1" style="display: none;"></span>
-    <input class="captchaInput" type="text" name="" id="captchaValue1" placeholder="Enter captcha 1" style="display:none">
-
+    <div class="captchaFillDiv">
+        <input class="captchaInput" type="text" name="" id="captchaValue1" placeholder="Enter captcha 1">
+        <span id="refreshDiv" class="refreshIcon" onclick="refreshCaptcha(true, 'one')"><i class="fa fa-refresh"></i></span>
+    </div>
     <div id="captcha2Div">
     </div>
     
     <span id="captchaToken2" style="display: none;"></span>
-    <input class="captchaInput" type="text" name="" id="captchaValue2" placeholder="Enter captcha 2"> 
+    <div class="captchaFillDiv">
+        <input class="captchaInput" type="text" name="" id="captchaValue2" placeholder="Enter captcha 2"> 
+        <span id="refreshDiv" class="refreshIcon" onclick="refreshCaptcha(true, 'two')"><i class="fa fa-refresh"></i></span>
+    </div>
     <div class="loginModes">
-        <span id="refreshDiv" class="refreshIcon anon-btn" onclick="refreshCaptcha(true, 'both')"><i class="fa fa-refresh"></i></span>
-        <a class="anon-btn" onclick="createWalletNotBot()" id="createWallet"> Submit</a>
+        <a class="anon-btn" onclick="createWalletNotBot('${referalCode}')" id="createWallet"> Submit</a>
     </div>
     `;
     refreshCaptcha(false, "both");
@@ -187,15 +206,25 @@ function refreshCaptcha(externally, which){
     refreshDiv.style.animation = "none";
 }
 
-function createWalletNotBot(){
+function createWalletNotBot(referalCode){
+    let loginArea = document.getElementById("loginViewArea");
     let captchaToken1 = document.getElementById("captchaToken1");
     let captchaToken2 = document.getElementById("captchaToken2");
     let captchaValue1 = document.getElementById("captchaValue1").value;
     let captchaValue2 = document.getElementById("captchaValue2").value;
     let captchaMessage = document.getElementById("captchaMessage");
+    let loadingOverlay = document.createElement('div');
+    loadingOverlay.id = "loadingOverlay";
+    loadingOverlay.innerHTML = `
+        <div id='overlayAnim' style='display:flex;'></div>
+        <div id="loadingMessage">Verifying captcha...</div>
+    `;
+    loginArea.appendChild(loadingOverlay);
+    createDotsAnimation('overlayAnim', 10, 100);
     if (captchaValue1.length < 4 || captchaToken2 < 4) {
         refreshCaptcha(false)
         captchaMessage.innerHTML = "Invalid Captcha";
+        loadingOverlay.style.display = "none";
     }else{
         async function verifyCaptcha(){
             let captcha1 = document.getElementById("captchaValue1");
@@ -206,7 +235,8 @@ function createWalletNotBot(){
                 cap1: captchaValue1,
                 CapT2: captchaToken2.innerHTML,
                 cap2: captchaValue2,
-                purpose: "creation"
+                purpose: "creation",
+                referalCode : referalCode
             };
             const response = await fetch(logUrl, {
                 method: 'post',
@@ -216,26 +246,32 @@ function createWalletNotBot(){
                 body: JSON.stringify(encyDat)
             });
             var verifyCaptcha = await response.json();
-            console.log(verifyCaptcha);
-            if (verifyCaptcha.status) {
-                showWallet(verifyCaptcha);
-            }else if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "both"){
+            if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "both"){
+                loadingOverlay.style.display = "none";
                 captcha1.value = '';
                 captcha2.value = '';
-                captchaMessage.innerHTML = "Wrong Captcha";
+                captchaMessage.innerHTML = "Wrong captcha entered";
                 refreshCaptcha(false, "both")
 
             }else if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "one"){
+                loadingOverlay.style.display = "none";
                 captcha1.value = "";
                 captchaMessage.innerHTML = "Refill 1st Captcha";
                 refreshCaptcha(false, "one")
 
             }else if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "two"){
+                loadingOverlay.style.display = "none";
                 captcha2.value = "";
                 captchaMessage.innerHTML = "Refill 2nd Captcha";
                 refreshCaptcha(false, "two")
             }else{
-                captchaMessage.innerHTML = verifyCaptcha.captchaFail;
+                loadingOverlay.innerHTML = `
+                <div id='overlayAnim' style='display:flex;'></div>
+                <div id="loadingMessage">Generating a wallet...</div>
+                `;
+                setTimeout(() => {
+                    showNewWallet(verifyCaptcha);
+                }, 1000);
             }
         }
         verifyCaptcha()
@@ -243,23 +279,266 @@ function createWalletNotBot(){
 
 }
 
-
-function showWallet(walletInfo){
+function recoverWallet(){
     let loginArea = document.getElementById("loginViewArea");
     loginArea.innerHTML = `
-            <div class="loginTitle successIcon">
-                <img src="brands/success.png">
-             </div>
-             <div class="loginTitle successMessage">
-                <span>Wallet Created Successfully</span>
-             </div>
-             <hr width="80px">
-             
-             `;
+    <i class="fa fa-arrow-left goBack" onclick="gotoMainScreen()"></i>
+    <div class="loginTitle verificationTitle">
+        <span>Human Verification</span>
+    </div>
+    <div id="captchaMessage"></div>
+    <div id="captcha1Div">
+    </div>
+
+    <span id="captchaToken1" style="display: none;"></span>
+    <div class="captchaFillDiv">
+        <input class="captchaInput" type="text" name="" id="captchaValue1" placeholder="Enter captcha 1">
+        <span id="refreshDiv" class="refreshIcon" onclick="refreshCaptcha(true, 'one')"><i class="fa fa-refresh"></i></span>
+    </div>
+    
+
+    <div id="captcha2Div">
+    </div>
+    
+    <span id="captchaToken2" style="display: none;"></span>
+    <div class="captchaFillDiv">
+        <input class="captchaInput" type="text" name="" id="captchaValue2" placeholder="Enter captcha 2"> 
+        <span id="refreshDiv" class="refreshIcon" onclick="refreshCaptcha(true, 'two')"><i class="fa fa-refresh"></i></span>
+    </div>
+
+    <div class="loginValueInputDiv">
+        <input class="loginValueInput" type="text" name="" id="loginValueInput" placeholder="Enter private key or seed phrase">
+    </div>
+    <div class="loginModes">
+        <a class="anon-btn" onclick="botlessLogin()" id="createWallet"> Login/Recover</a>
+    </div>
+    `;
+    refreshCaptcha(false, "both");
+}
+
+
+function botlessLogin(){
+    let loginArea = document.getElementById("loginViewArea");
+    let captchaToken1 = document.getElementById("captchaToken1");
+    let captchaToken2 = document.getElementById("captchaToken2");
+    let captchaValue1 = document.getElementById("captchaValue1").value;
+    let captchaValue2 = document.getElementById("captchaValue2").value;
+    let captchaMessage = document.getElementById("captchaMessage");
+    let loginValueInput = document.getElementById("loginValueInput");
+    let loginValue = loginValueInput.value;
+    let loadingOverlay = document.createElement('div');
+    loadingOverlay.id = "loadingOverlay";
+    loadingOverlay.innerHTML = `
+        <div id='overlayAnim' style='display:flex;'></div>
+        <div id="loadingMessage">Verifying captcha...</div>
+    `;
+    loginArea.appendChild(loadingOverlay);
+    createDotsAnimation('overlayAnim', 10, 100);
+    if (captchaValue1.length < 4 || captchaToken2 < 4) {
+        refreshCaptcha(false)
+        captchaMessage.innerHTML = "Invalid/empty captcha entered";
+        loadingOverlay.style.display = "none";
+    }else{
+        async function loginWallet(){
+            let captcha1 = document.getElementById("captchaValue1");
+            let captcha2 = document.getElementById("captchaValue2");
+            const logUrl = '/API/captchaVarification';
+            var encyDat = {
+                CapT1: captchaToken1.innerHTML,
+                cap1: captchaValue1,
+                CapT2: captchaToken2.innerHTML,
+                cap2: captchaValue2,
+                purpose: "recovery",
+                recoveryPhrase: loginValue
+            };
+            const response = await fetch(logUrl, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(encyDat)
+            });
+            var verifyCaptcha = await response.json();
+            if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "both"){
+                captcha1.value = '';
+                captcha2.value = '';
+                captchaMessage.innerHTML = "Wrong captcha entered";
+                refreshCaptcha(false, "both")
+
+            }else if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "one"){
+                loadingOverlay.style.display = "none";
+                captcha1.value = "";
+                captchaMessage.innerHTML = "Refill 1st Captcha";
+                refreshCaptcha(false, "one")
+
+            }else if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "two"){
+                loadingOverlay.style.display = "none";
+                captcha2.value = "";
+                captchaMessage.innerHTML = "Refill 2nd Captcha";
+                refreshCaptcha(false, "two")
+            }else{
+                loadingOverlay.innerHTML = `
+                <div id='overlayAnim' style='display:flex;'></div>
+                <div id="loadingMessage">Verifying your wallet...</div>
+                `;
+                createDotsAnimation('overlayAnim', 10, 100);
+                setTimeout(() => {
+                    loginRecoverWallet(verifyCaptcha);
+                }, 1000);
+            }
+        }
+        loginWallet()
+    }
 
 }
-function recoverWallet(){
+function showNewWallet(walletInfo){
+    let loginArea = document.getElementById("loginViewArea");
+    if (walletInfo.status) {
+        let seedArray = walletInfo.walletSeed.trim().split(/\s+/);
+        let seedArrayList = seedArray.map(word => `<li>${word} </li>`).join('<br>');
+        loginArea.innerHTML = `
+            <div class="loginTitle successMessage">
+                <span>Wallet Created Successfully</span>
+            </div>
+            <div class="loginTitle walletInfo">
+            <div class="topMessage">
+                <div class="title">Warning: We don't save your recovery phrase(2) and private key(1). If you lose the recovery phrase, you will not be able to recover your wallet.
+                </br>Kindly write/note them down</div>
+            </div>
+            <div class="walletAddress">
+                <span class="title">1. Wallet Address</span>
+                <div class="walletAddressField">
+                    <input type="text" id="" value="${walletInfo.walletAddress}">
+                </div>
+            </div>
+            
+            <div class="recoveryFile">
+                <span class="title">2. Private Key</span>
+                <div class="instructions">
+                    <p>This will be used to sign in and manage your wallet.</p>
+                </div>
+                <div class="recoveryFileField">
+                    <input type="text" id="pText" value="${walletInfo.walletKey}">
+                </div>
+                
+            </div>
+            <div class="walletPhrase">
+                <span class="title">3. Recovery Phrase</span>
+                <div class="instructions">
+                    <p>Memorise it or write it down, in the same order.</p>
+                </div>
+                <div class="recoveryPhraseField">
+                    <ul>
+                        ${seedArrayList}
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="goToWallet" onclick="goto('/mywallet/')">
+                <span>Go to Wallet</span>
+            </div>`
+        ;
+    }else{
+        loginArea.innerHTML = `
+            <div class="loginTitle errorTitle">
+                    <span>Wallet creation failed</span>
+            </div>
+            <div class="topMessage errorMessage">
+                <div class="title">${walletInfo.log}</div>
+            </div>
+            <div class="goToWallet" onclick="goto('/mywallet')">
+                <span>Create Again</span>
+            </div>
+    `;
+    }
+}
 
+function loginRecoverWallet(loginRecoverWallet){
+    let loginArea = document.getElementById("loginViewArea");
+    if (loginRecoverWallet.purpose == "Recovery") {
+        if (loginRecoverWallet.status) {
+            loginArea.innerHTML = `
+            <div class="loginTitle successMessage">
+                <span>Wallet Recoverd Successfully</span>
+            </div>
+            <div class="loginTitle walletInfo">
+            <div class="topMessage">
+                    <div class="title">Warning: We don't save your recovery phrase and private key. If you lose the recovery phrase, you will not be able to recover your wallet.
+                    </br>Note them down</div>
+            </div>
+            <div class="walletAddress">
+                <span class="title">1. Wallet Address</span>
+                <div class="walletAddressField">
+                    <input type="text" id="" value="${loginRecoverWallet.walletAddress}">
+                </div>
+            </div>
+            
+            <div class="recoveryFile">
+                <span class="title">2. Private Key</span>
+                <div class="instructions">
+                    <p>Your private key will be used for sending and selling TBs and managing your wallet.</p>
+                </div>
+                <div class="recoveryFileField">
+                    <input type="text" id="pText" value="${loginRecoverWallet.walletKey}">
+                </div>
+                
+            </div>
+            <div class="goToWallet" onclick="goto('/mywallet/')">
+                <span>Go to Wallet</span>
+            </div>`
+        ;
+        }else{
+            loginArea.innerHTML = `
+                <div class="loginTitle errorTitle">
+                        <span>Wallet recovery failed</span>
+                </div>
+                <div class="topMessage errorMessage">
+                    <div class="title">${loginRecoverWallet.log}</div>
+                </div>
+                <div class="goToWallet" onclick="goto('/mywallet/')">
+                    <span>Try Again</span>
+                </div>
+            `;
+        }
+    }else if(loginRecoverWallet.purpose == "Login"){
+        if (loginRecoverWallet.status) {
+            loginArea.innerHTML = `
+            <div class="loginTitle successMessage s15">
+                <span>Logged in successfully</span>
+            </div>
+            <div class="topMessage redirectingMessage">
+                    <div class="title">Redirecting...</div>
+            </div>
+            `;
+            setTimeout(() => {
+                // goto('/mywallet');
+            }, 1000);
+        }else{
+            loginArea.innerHTML = `
+                <div class="loginTitle errorTitle">
+                        <span>Login Failed</span>
+                </div>
+                <div class="topMessage errorMessage">
+                    <div class="title">${loginRecoverWallet.log}</div>
+                </div>
+                <div class="goToWallet" onclick="goto('/mywallet')">
+                    <span>Try Again</span>
+                </div>
+            `;
+        }
+    }else{
+        loginArea.innerHTML = `
+                <div class="loginTitle errorTitle">
+                        <span>We can't process</span>
+                </div>
+                <div class="topMessage errorMessage">
+                    <div class="title">${loginRecoverWallet.log}</div>
+                </div>
+                <div class="goToWallet" onclick="goto('/mywallet')">
+                    <span>Try Again</span>
+                </div>
+            `;
+    }
 }
 
 async function getCaptcha1(){
@@ -296,6 +575,39 @@ async function getCaptcha2(){
     let captchaToken2 = document.getElementById('captchaToken2');
     captchaToken2.innerHTML = getCaptcha2.token;
 }
+
+function gotoMainScreen(){
+    let loginArea = document.getElementById("loginViewArea");
+    loginArea.innerHTML = `
+    <div class="loginTitle">
+                <span>Your ShellCoin Wallet</span>
+            </div>
+            <hr width="80px">
+            <div class="loginModes">
+                <a class="anon-btn" onclick="createWallet()" id="createWallet"><img src="/images/anon.png" alt="Anonymous logo"> Create a new wallet</a>
+            </div>
+            <div class="loginModes">
+                <a class="anon-btn loginWallet" onclick="recoverWallet()" id="recoverWallet"> <img class="recover" src="/images/wallet.png" alt="Wallet logo">Login/Recover Wallet</a>
+            </div>
+
+            <div class="applyReferalLink" onclick="toggleReferal()" id="applyReferalLink">
+                <span>I have referel code</span>
+            </div>
+            <div id="applyReferer" class="loginModes applyReferer" style="display: none;">
+                <input id="referalInput" type="text" placeholder="Enter referel wallet">
+                <span id="applyReferal" onclick="applyReferal()" class="button">Apply code</span>
+            </div>
+
+            <div class="loginModes agreement">
+                <span>Before creating your wallet with ShellCoin, please review these key points to ensure its <a href="/security-recovery">security and  recovery</a>. </span>
+            </div>
+            
+            <div class="loginModes">
+                <a class="anonMessage"> You are 100% anonymous to us <br>and to the world</a>
+            </div>
+    `;
+}
+
 
 
 

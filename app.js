@@ -1,5 +1,5 @@
 const express = require('express');
-const session = require('cookie-session');
+const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cookieOnly = require('cookie');
 const path = require('path');
@@ -32,21 +32,15 @@ app.use(express.urlencoded({ extended: true }));
 // app.get('/', async (req, res) => {
 //     res.render('home');
 // });
-app.post('/API/captchaVarification', (req, res) => {
+app.post('/API/captchaVarification', async (req, res) => {
     let verifyCap1 = verifyCaptcha(req.body.cap1, req.body.CapT1);
     let verifyCap2 = verifyCaptcha(req.body.cap2, req.body.CapT2);
     let purpose = req.body.purpose;
     if(verifyCap1 && verifyCap2){
         if (purpose == "creation") {
-            const newWallet = myBatchWallet.createWallet();
-            res.json({
-                status: true,
-                walletAddress : newWallet.walletAddress,
-                walletSeed : newWallet.seedPhrase,
-                walletKey : newWallet.privateKey
-               });
+            createWallet(req, res);
         }else if (purpose == "recovery") {
-            console.log("recovery")
+            await recoverWallet(req, res);
         }else{
             res.json({
                 status: false,
@@ -71,6 +65,43 @@ app.post('/API/captchaVarification', (req, res) => {
     }
 });
 
+async function recoverWallet(req, res){
+    let recoveryKey = req.body.recoveryPhrase;
+    const recoveryStatus = await myBatchWallet.recoverLoginWallet(req, recoveryKey);
+    if (recoveryStatus.status) {
+        res.json({
+            status: recoveryStatus.status,
+            log: recoveryStatus.log,
+            walletAddress : recoveryStatus.walletAddress,
+            purpose : recoveryStatus.purpose,
+            walletKey : recoveryStatus.privateKey
+        });
+    }else{
+        res.json({
+            status: recoveryStatus.status,
+            log: recoveryStatus.log
+        });
+    }
+}
+
+async function createWallet(req, res){
+    let referalCode = req.body.referalCode;
+    const newWallet = await myBatchWallet.createWallet(req, referalCode);
+    if (newWallet.status) {
+        res.json({
+            status: newWallet.status,
+            log: newWallet.log,
+            walletAddress : newWallet.walletAddress,
+            walletSeed : newWallet.seedPhrase,
+            walletKey : newWallet.privateKey
+        });
+    }else{
+        res.json({
+            status: newWallet.status,
+            log: newWallet.log
+        });
+    }
+}
 
 app.post('/API/captcha/generateCaptcha', async (req, res) => {
     let newCaptcha = await generateCaptcha();
@@ -81,13 +112,15 @@ app.post('/API/captcha/generateCaptcha', async (req, res) => {
 
 });
 
-app.get('/login', async (req, res) => {
-    res.render('login');
+app.get('/mywallet', async (req, res) => {
+    res.render('mywallet');
 });
 
 
-app.post('/API/checkReferal', (req, res) => {
-    var referalStatus = checkReferal(req, res);
+app.get('/API/checkReferal', async (req, res) => {
+    const referalWallet = req.query.ref;
+    console.log(referalWallet)
+    var referalStatus = await checkReferal(referalWallet);
     res.json({
         referalStatus: referalStatus,
        });
