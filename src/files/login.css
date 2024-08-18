@@ -84,7 +84,7 @@ body{
 }
 .walletInfo .walletPhrase .title{
     text-underline-offset: 3px;
-    font-size: 12px;
+    font-size: 13px;
     text-transform: capitalize;
     display: flex;
     align-items:  center;
@@ -112,7 +112,7 @@ body{
     width: auto;
 }
 .recoveryPhraseField ul li{
-    font-size: 10px;
+    font-size: 12px;
     list-style: decimal;
     display: flex;
     flex-wrap: wrap; 
@@ -155,7 +155,7 @@ body{
 .walletInfo .recoveryFile .title{
     text-underline-offset: 3px;
     text-decoration: underline;
-    font-size: 12px;
+    font-size: 13px;
     text-transform: capitalize;
 }
 /* Recovery File */
@@ -167,7 +167,7 @@ body{
 .walletInfo .walletAddress .title{
     text-decoration: underline;
     text-underline-offset: 3px;
-    font-size: 12px;
+    font-size: 13px;
     text-transform: capitalize;
 }
 .walletInfo .walletAddress input, .recoveryFileField input{
@@ -216,7 +216,7 @@ body{
     color: #16d355 !important;
 }
 .successMessage{
-    font-size: 13px;
+    font-size: 15px;
     color: #16d355;
     margin-bottom: 0px;
     text-transform: none;
@@ -488,7 +488,7 @@ body{
 }
 @media screen and (max-width: 600px) {
     .topViewBox{
-       height: auto;
+       /* height: auto; */
     }
     
     .applyReferalLink{
