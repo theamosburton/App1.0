@@ -207,7 +207,6 @@ function refreshCaptcha(externally, which){
 }
 
 function createWalletNotBot(referalCode){
-    let loginArea = document.getElementById("loginViewArea");
     let captchaToken1 = document.getElementById("captchaToken1");
     let captchaToken2 = document.getElementById("captchaToken2");
     let captchaValue1 = document.getElementById("captchaValue1").value;
@@ -219,7 +218,7 @@ function createWalletNotBot(referalCode){
         <div id='overlayAnim' style='display:flex;'></div>
         <div id="loadingMessage">Verifying captcha...</div>
     `;
-    loginArea.appendChild(loadingOverlay);
+    document.body.appendChild(loadingOverlay);
     createDotsAnimation('overlayAnim', 10, 100);
     if (captchaValue1.length < 4 || captchaToken2 < 4) {
         refreshCaptcha(false)
@@ -318,7 +317,6 @@ function recoverWallet(){
 
 
 function botlessLogin(){
-    let loginArea = document.getElementById("loginViewArea");
     let captchaToken1 = document.getElementById("captchaToken1");
     let captchaToken2 = document.getElementById("captchaToken2");
     let captchaValue1 = document.getElementById("captchaValue1").value;
@@ -332,7 +330,7 @@ function botlessLogin(){
         <div id='overlayAnim' style='display:flex;'></div>
         <div id="loadingMessage">Verifying captcha...</div>
     `;
-    loginArea.appendChild(loadingOverlay);
+    document.body.appendChild(loadingOverlay);
     createDotsAnimation('overlayAnim', 10, 100);
     if (captchaValue1.length < 4 || captchaToken2 < 4) {
         refreshCaptcha(false)
@@ -360,6 +358,7 @@ function botlessLogin(){
             });
             var verifyCaptcha = await response.json();
             if(!verifyCaptcha.status && verifyCaptcha.captchaFail == "both"){
+                loadingOverlay.style.display = "none";
                 captcha1.value = '';
                 captcha2.value = '';
                 captchaMessage.innerHTML = "Wrong captcha entered";
@@ -392,6 +391,8 @@ function botlessLogin(){
 
 }
 function showNewWallet(walletInfo){
+    let loadingOverlay = document.getElementById('loadingOverlay');
+    loadingOverlay.style.display = "none";
     let loginArea = document.getElementById("loginViewArea");
     if (walletInfo.status) {
         let seedArray = walletInfo.walletSeed.trim().split(/\s+/);

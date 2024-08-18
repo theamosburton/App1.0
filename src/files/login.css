@@ -8,36 +8,21 @@
     margin: 0;
 }
 body{
-    padding: 0;
-    margin: 0;
-    width: 100vw;
-    height: 100%;
-    background-color:hsl(240deg 48.15% 10.59%);
-    background-image: url('/images/loginback.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:auto;
-    background-color: hsl(240deg 48.15% 10.59%);
-    background-blend-mode: luminosity;
-    backdrop-filter: blur(1px);
-    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    background-color: #0a001d;
+    height: 100vh;
 }
 
 .topViewBox{
-    max-width: 1400px;
-    height: 100vh;
-    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: auto;
-    overflow-clip-margin: 1px;
-    /* position: absolute; */
-    /* z-index: 9999; */
+    position: absolute;
 }
-
 .viewArea{
-    position: relative;
     padding: 35px 35px 35px 35px;
     border: 1px solid #cab8ec;
     border-radius: 10px;
@@ -57,7 +42,7 @@ body{
     color: aliceblue;
     display: flex;
     justify-content: center;
-    text-transform: uppercase;
+    text-transform: none;
     text-align: center;
 }
 .verificationTitle{
@@ -263,7 +248,7 @@ body{
     position: absolute;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     background-color: #47b575ce;
@@ -346,7 +331,7 @@ body{
 .goBack{
     color: white;
     position: absolute;
-    top: 20px;
+    top: 35px;
     left: 20px;
 }
 .goBack:hover{
@@ -497,5 +482,31 @@ body{
 
     .agreement{
         font-size: 16px;
+    }
+}
+@media screen and (max-width: 350px){
+    .topViewBox {
+        height: auto;
+        width: 100vw;
+        align-items: flex-start;
+        padding: 0px;
+    }  
+    .viewArea{
+        border: 0px;
+        box-shadow: none;
+        padding: 20px;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .goBack{
+        top: 15px;
+    }
+    .captchaInput{
+        max-width: none;
+    }
+    .topMessage{
+        max-width: none;
+        margin-top: 20px;
+        font-size: 13px;
     }
 }
