@@ -122,7 +122,6 @@ async function checkWalletExistsInDB(walletAddress) {
     if(database.status){
       const conn = database.conn;
       const collection = conn.collection('wallets');
-      console.log(walletAddress)
       const result = await collection.findOne({ address: walletAddress });  
       if (result != null) {
         return true;

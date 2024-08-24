@@ -119,7 +119,6 @@ app.get('/mywallet', async (req, res) => {
 
 app.get('/API/checkReferal', async (req, res) => {
     const referalWallet = req.query.ref;
-    console.log(referalWallet)
     var referalStatus = await checkReferal(referalWallet);
     res.json({
         referalStatus: referalStatus,
