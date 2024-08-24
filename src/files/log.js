@@ -243,21 +243,19 @@ function renderNewWallet(walletInfo){
     loadingOverlay.style.display = "none";
     let loginArea = document.getElementById("loginViewArea");
     if (walletInfo.status) {
-        let seedArray = walletInfo.walletSeed.trim().split(/\s+/);
-        let seedArrayList = seedArray.map(word => `<li>${word} </li>`).join('<br>');
         loginArea.innerHTML = `
             <div class="loginTitle successMessage">
                 <span>Wallet Created Successfully</span>
             </div>
             <div class="loginTitle walletInfo">
             <div class="topMessage">
-                <div class="title">Warning: We don't save your recovery phrase(2) and private key(1). If you lose the recovery phrase, you will not be able to recover your wallet.
+                <div class="title">Note: We don't save your recovery phrase(2) and private key(1). If you lose the recovery phrase, you will not be able to recover your wallet.
                 </br>Kindly write/note them down</div>
             </div>
             <div class="walletAddress">
                 <span class="title">1. Wallet Address</span>
                 <div class="walletAddressField">
-                    <input type="text" id="" value="${walletInfo.walletAddress}">
+                    <input onclick="copyToClipboard('walletAddress', 'Wallet Address')" type="text" id="walletAddress" value="${walletInfo.walletAddress}">
                 </div>
             </div>
             
@@ -267,7 +265,7 @@ function renderNewWallet(walletInfo){
                     <p>This will be used to sign in and manage your wallet.</p>
                 </div>
                 <div class="recoveryFileField">
-                    <input type="text" id="pText" value="${walletInfo.walletKey}">
+                    <input onclick="copyToClipboard('pText', 'Private Key')" type="text" id="pText" value="${walletInfo.walletKey}">
                 </div>
                 
             </div>
@@ -276,10 +274,8 @@ function renderNewWallet(walletInfo){
                 <div class="instructions">
                     <p>Memorise it or write it down, in the same order.</p>
                 </div>
-                <div class="recoveryPhraseField">
-                    <ul>
-                        ${seedArrayList}
-                    </ul>
+                <div onclick="copyToClipboard('seedPhrase', 'Seed Phrase')" id="seedPhrase" class="recoveryPhraseField">
+                    ${walletInfo.walletSeed}
                 </div>
                 
             </div>
@@ -415,6 +411,8 @@ function recoverWalletNotBot(){
 
 }
 function renderRecoveredWallet(loginRecoverWallet){
+    let loadingOverlay = document.getElementById('loadingOverlay');
+    loadingOverlay.style.display = "none";
     let loginArea = document.getElementById("loginViewArea");
     if (loginRecoverWallet.purpose == "Recovery") {
         if (loginRecoverWallet.status) {

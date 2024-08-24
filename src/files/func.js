@@ -104,4 +104,25 @@ function logout(){
         }
 }
 
+async function copyToClipboard(divId, type) {
+    if (type == 'Seed Phrase') {
+        try {
+            var divElement = document.getElementById(divId);
+            await navigator.clipboard.writeText(divElement.innerHTML);
+            alert(`${type} copied to clipboard!`);
+        } catch (err) {
+            console.error(`Failed to copy ${type}`);
+        }
+    }else{
+        try {
+            var divElement = document.getElementById(divId);
+            await navigator.clipboard.writeText(divElement.value);
+            alert(`${type} copied to clipboard!`);
+        } catch (err) {
+            console.error(`Failed to copy ${type}`);
+        }
+    }
+    
+}
+
 
