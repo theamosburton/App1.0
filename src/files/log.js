@@ -418,27 +418,37 @@ function renderRecoveredWallet(loginRecoverWallet){
         if (loginRecoverWallet.status) {
             loginArea.innerHTML = `
             <div class="loginTitle successMessage">
-                <span>Wallet Recoverd Successfully</span>
+                <span>Wallet Created Successfully</span>
             </div>
             <div class="loginTitle walletInfo">
             <div class="topMessage">
-                    <div class="title">Warning: We don't save your recovery phrase and private key. If you lose the recovery phrase, you will not be able to recover your wallet.
-                    </br>Note them down</div>
+                <div class="title">Note: We don't save your recovery phrase(2) and private key(1). If you lose the recovery phrase, you will not be able to recover your wallet.
+                </br>Kindly write/note them down</div>
             </div>
             <div class="walletAddress">
                 <span class="title">1. Wallet Address</span>
                 <div class="walletAddressField">
-                    <input type="text" id="" value="${loginRecoverWallet.walletAddress}">
+                    <input onclick="copyToClipboard('walletAddress', 'Wallet Address')" type="text" id="walletAddress" value="${walletInfo.walletAddress}">
                 </div>
             </div>
             
             <div class="recoveryFile">
                 <span class="title">2. Private Key</span>
                 <div class="instructions">
-                    <p>Your private key will be used for sending and selling TBs and managing your wallet.</p>
+                    <p>This will be used to sign in and manage your wallet.</p>
                 </div>
                 <div class="recoveryFileField">
-                    <input type="text" id="pText" value="${loginRecoverWallet.walletKey}">
+                    <input onclick="copyToClipboard('pText', 'Private Key')" type="text" id="pText" value="${walletInfo.walletKey}">
+                </div>
+                
+            </div>
+            <div class="walletPhrase">
+                <span class="title">3. Recovery Phrase</span>
+                <div class="instructions">
+                    <p>Memorise it or write it down, in the same order.</p>
+                </div>
+                <div onclick="copyToClipboard('seedPhrase', 'Seed Phrase')" id="seedPhrase" class="recoveryPhraseField">
+                    ${walletInfo.walletSeed}
                 </div>
                 
             </div>

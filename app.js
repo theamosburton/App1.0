@@ -173,7 +173,7 @@ app.get('/whitepaper', async (req, res) => {
 
 app.get('/sitemap', renderSitemap);
 app.get('/sitemap.xml', renderSitemap);
-// Starting Server
+
 app.listen(port, () => {
     
     console.log(`Server is running on http://localhost:${port}`);
