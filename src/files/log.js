@@ -249,13 +249,15 @@ function renderNewWallet(walletInfo){
             </div>
             <div class="loginTitle walletInfo">
             <div class="topMessage">
-                <div class="title">Note: We don't save your recovery phrase(2) and private key(1). If you lose the recovery phrase, you will not be able to recover your wallet.
-                </br>Kindly write/note them down</div>
+                <div class="title">1. We don't save your recovery phrase(2) and private key(1). 
+                </br>If you lose the recovery phrase, you will not be able to recover your wallet.</br>
+                2. Remove or disable all extensions if installed.
+                </br>3. Kindly note following details manually</div>
             </div>
             <div class="walletAddress">
                 <span class="title">1. Wallet Address</span>
                 <div class="walletAddressField">
-                    <input onclick="copyToClipboard('walletAddress', 'Wallet Address')" type="text" id="walletAddress" value="${walletInfo.walletAddress}">
+                    <textarea resize="none" onclick="copyToClipboard('walletAddress', 'Wallet Address')" id="walletAddress" >${walletInfo.walletAddress}</textarea>
                 </div>
             </div>
             
@@ -265,7 +267,7 @@ function renderNewWallet(walletInfo){
                     <p>This will be used to sign in and manage your wallet.</p>
                 </div>
                 <div class="recoveryFileField">
-                    <input onclick="copyToClipboard('pText', 'Private Key')" type="text" id="pText" value="${walletInfo.walletKey}">
+                    <textarea rows="2" id="pText" resize="none">${walletInfo.walletKey}</textarea>
                 </div>
                 
             </div>
@@ -276,7 +278,7 @@ function renderNewWallet(walletInfo){
                 </div>
                 <div   class="recoveryPhraseField">
 
-                    <textarea onclick="copyToClipboard('seedPhrase', 'Seed Phrase')" rows="3" class="walletSeed" id="seedPhrase">${walletInfo.walletSeed}</textarea>
+                    <textarea rows="3" class="walletSeed" id="seedPhrase">${walletInfo.walletSeed}</textarea>
                     
                 </div>
                 

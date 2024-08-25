@@ -108,14 +108,8 @@ async function copyToClipboard(divId, type) {
     var divElement = document.getElementById(divId);
     
     if (type == 'Seed Phrase') {
-        try {
-            divElement.select()
-            await navigator.clipboard.writeText(divElement.innerHTML);
-            alert(`${type} copied to clipboard!`);
-        } catch (err) {
-            console.error(`Failed to copy ${type}`);
-        }
-    }else{
+        divElement.select()
+    }else if(type == 'Wallet Address'){
         try {
             divElement.select();
             await navigator.clipboard.writeText(divElement.value);
