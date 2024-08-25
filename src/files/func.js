@@ -105,9 +105,11 @@ function logout(){
 }
 
 async function copyToClipboard(divId, type) {
+    var divElement = document.getElementById(divId);
+    
     if (type == 'Seed Phrase') {
         try {
-            var divElement = document.getElementById(divId);
+            divElement.select()
             await navigator.clipboard.writeText(divElement.innerHTML);
             alert(`${type} copied to clipboard!`);
         } catch (err) {
@@ -115,7 +117,7 @@ async function copyToClipboard(divId, type) {
         }
     }else{
         try {
-            var divElement = document.getElementById(divId);
+            divElement.select();
             await navigator.clipboard.writeText(divElement.value);
             alert(`${type} copied to clipboard!`);
         } catch (err) {

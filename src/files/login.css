@@ -80,10 +80,25 @@ body{
     display: flex;
     flex-wrap: wrap;
     background-color: #031d21;
-    padding: 10px;
     border-left: 5px solid rgb(255, 0, 0);
     font-size: 15px;
     max-width: 300px;
+    height: fit-content;
+}
+.walletPhrase .recoveryPhraseField .walletSeed{
+    color: white;
+    background-color: transparent;
+    padding: 10px;
+    width: 100%;
+    font-family: 'Geometric';
+    outline: none;
+    border: none;
+    height: min-content;
+    
+
+}
+.walletPhrase .recoveryPhraseField .walletSeed:hover{
+    outline: none;
 }
 .recoveryPhraseField ul{
     max-width: 200px;

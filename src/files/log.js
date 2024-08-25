@@ -274,8 +274,10 @@ function renderNewWallet(walletInfo){
                 <div class="instructions">
                     <p>Memorise it or write it down, in the same order.</p>
                 </div>
-                <div onclick="copyToClipboard('seedPhrase', 'Seed Phrase')" id="seedPhrase" class="recoveryPhraseField">
-                    ${walletInfo.walletSeed}
+                <div   class="recoveryPhraseField">
+
+                    <textarea onclick="copyToClipboard('seedPhrase', 'Seed Phrase')" rows="3" class="walletSeed" id="seedPhrase">${walletInfo.walletSeed}</textarea>
+                    
                 </div>
                 
             </div>
@@ -448,7 +450,10 @@ function renderRecoveredWallet(loginRecoverWallet){
                     <p>Memorise it or write it down, in the same order.</p>
                 </div>
                 <div onclick="copyToClipboard('seedPhrase', 'Seed Phrase')" id="seedPhrase" class="recoveryPhraseField">
-                    ${walletInfo.walletSeed}
+                <textarea>
+                   ${walletInfo.walletSeed}
+                </textarea>
+                   
                 </div>
                 
             </div>
