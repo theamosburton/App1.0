@@ -55,6 +55,7 @@ function styleUpdate() {
 }
 
 
+
 function toggleMode(){
     var toggleMode = document.querySelector('#toggleMode');
     // Check if it contains any <style> elements

@@ -121,4 +121,16 @@ async function copyToClipboard(divId, type) {
     
 }
 
+function showSearchBox(){
+    let searchForm = document.getElementById('searchDiv');
+    searchForm.style.display = 'flex';
+}
+
+function donotClose(event){
+    event.stopPropagation();
+}
+function hideSearchBox(){
+    let searchDiv = document.getElementById('searchDiv');
+    searchDiv.style.display = 'none';
+}
 
