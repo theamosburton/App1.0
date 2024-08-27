@@ -129,18 +129,36 @@
     }
 
   .statcards{
-    padding: 15px !important;
+    padding: 12px !important;
+  }
+  .statcards h6{
+    margin-bottom: 0px;
+    font-size: 10px;
+  }
+  .statcards h3{
+    font-size: 14px;
+  }
+  .statcards .indicator{
+    font-size: 10px;
   }
   .content-wrapper{
-    /* padding: 10px  !important; */
+    padding: 10px  !important;
   }
   .scrollable-cards {
     margin-bottom: 10px;
+  }
+  .scrollable-cards .stretch-card{
+    margin-right: 0px;
+    margin-bottom: 5px;
+    padding-right: 5px;
   }
   .txnCard{
     padding-left:  15px !important;
     padding-right:  15px !important;
   }
+}
+.txnCard th{
+  color: whitesmoke !important;
 }
 @-moz-keyframes flash {
   0% {
