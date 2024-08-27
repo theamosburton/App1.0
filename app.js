@@ -144,7 +144,7 @@ app.get('/privacy-policy', async (req, res) => {
     res.render('privacy-policy', {data, appInfo});
 });
 
-app.get('/dashboard', async (req, res) => {
+app.get('/', async (req, res) => {
     // var data = await loadViews.support(req);
     res.render('dashboard');
 });

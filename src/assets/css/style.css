@@ -124,6 +124,10 @@
 }
 
 @media (max-width: 700px) {
+    .border-sm-none {
+      border: none !important;
+    }
+
   .statcards{
     padding: 15px !important;
   }
