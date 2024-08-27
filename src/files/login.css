@@ -551,10 +551,6 @@ body{
         padding: 12px 25px;
         font-size: 22px;
     }
-    /* #createWallet{
-        border-radius: 5px;
-        padding: 8px 18px;
-    } */
 }
 
 @media screen and (max-width: 350px){

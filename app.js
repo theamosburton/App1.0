@@ -144,10 +144,10 @@ app.get('/privacy-policy', async (req, res) => {
     res.render('privacy-policy', {data, appInfo});
 });
 
-// app.get('/support', async (req, res) => {
-//     var data = await loadViews.support(req);
-//     res.render('support', {data});
-// });
+app.get('/dashboard', async (req, res) => {
+    // var data = await loadViews.support(req);
+    res.render('dashboard');
+});
 
 const renderSitemap = (req, res) => {
     res.set('Content-type','Application/xml');
