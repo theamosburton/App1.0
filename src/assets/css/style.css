@@ -163,6 +163,13 @@
 .footer{
   padding: 0px 1rem 10px 1rem !important;
 }
+
+.searchIcon{
+  color: rgb(96, 99, 100) !important;
+}
+.searchIcon:hover{
+  color: rgb(210, 205, 205) !important;
+}
 @-moz-keyframes flash {
   0% {
     opacity: 1; }
