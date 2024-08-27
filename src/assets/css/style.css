@@ -136,7 +136,7 @@
     font-size: 10px;
   }
   .statcards h3{
-    font-size: 14px;
+    font-size: 15px;
   }
   .statcards .indicator{
     font-size: 10px;
@@ -159,6 +159,9 @@
 }
 .txnCard th{
   color: whitesmoke !important;
+}
+.footer{
+  padding: 0px 1rem 10px 1rem !important;
 }
 @-moz-keyframes flash {
   0% {
