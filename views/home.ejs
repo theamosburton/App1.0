@@ -1,172 +1,541 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="files/style.css?v=2.0.5">
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-    <link href="assets/css/fontawesome6.3.0.css" rel="stylesheet">
-    <link href="assets/fontawesome/css/brands.min.css" rel="stylesheet">
-    <link href="assets/fontawesome/css/solid.min.css" rel="stylesheet">
-    <title><%- appInfo.appName %> Presale Live</title>
-</head>
-<body>
-    <div class="topViewBox">
-        <div class="viewArea">
-            
-            
-            <div class="headerSection">
-                <div class="logoSection">
-                    <img src="images/logo-round.png" alt="O" class="logo">
-                    <h1 class="name"><%- appInfo.appName %> </h1> 
-                    
-                </div>
-                
-                <%- data.nLogTop %>
-            </div>
-            <!-- Action Section -->
-            <div class="actionSection" >
-                <div class="shader">
-                    <span class="topLine">Missed the Bitcoin Train? </span>
-                    <span class="tagLine"> Don't Worry <br> Grab Your Ticket to the<br>Future with   <span class="green"><%- appInfo.appName %>s </span>
-                        <br>Exclusive <span class="blue"> Pre-Sale</span>
-                    </span>
-                    <span class="actionLine">Invest wisely today in <%- appInfo.appName %> <br>and watch your investment soar to new heights tomorrow. <br id="linebreak">Don't miss out on the opportunity for financial growth!</span>
-                    <hr class="firstLine">
-                    <div class="tokenAction">
-                        <div class="leftAction">
-                            <%- data.buyLink%>
-                        </div>
-                    </div>
-                </div>
-                <%- data.Dp %>
-            </div>
-            <!-- action section -->
-            
-            <!-- Stat Section -->
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TuloByte Dashboard</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
 
-            <div class="poweredSection">
-                <div class="brandTitle"><span>Powered By</span></div>
-                <div class="brand">
-                    
-                    <div class="brands"><img src="brands/Binance.png" alt="Binance logo"></div>
-                    <div class="brands"><img src="brands/CoinStats.png" alt="CoinStats logo"></div>
-                    <div class="brands"><img src="brands/Google.png" alt="Google Logo"></div>
-                    <div class="brands"><img src="brands/solana.png" alt="Binance logo"></div>
-                    <div class="brands"><img src="brands/mastercard.png" alt="mastercard logo"></div>
-                    <div class="brands"><img src="brands/OpenAi.png" alt="OpenAi Logo"></div>
-                    <div class="brands"><img src="brands/visa.png" alt="Visa Logo"></div>
-                    <div class="brands"><img src="brands/Ethereum.png" alt="Ethereum logo"></div>
-                    <div class="brands"><img src="brands/Github.png" alt="Github Logo"></div>
-                    <div class="brands"><img src="brands/Microsoft.png" alt=""></div>
-                </div>
-            </div>
-            <hr class="secondLine">
-        
-            <!-- About Section -->
-            <div class="aboutTokenSection">
-                <div class="aboutTitle">
-                    <div class="mainTitle">What is <%- appInfo.appName %>?</div>
-                </div>
-                <div class="aboutSection">
-                    <div class="shader">
-                        <div class="aboutLeftSection">
-                            <ul>
-                                <li> <span class="steps"><%- appInfo.appName %>: </span> <%- appInfo.appName %> (TBS) is a crypto coin created on BatchChain Technology. Unlike blockchain, batchchain technology increase the crypto price as the batch increases.</li>
-
-                                <li> <span class="steps">Mechanism: </span> It uses Proof Of Stake(PoS) where every transaction is free of blocks. The total supply is divided into batches. As the batch number increase the price of crypto increases and the batch size decrease.</li>
-
-                                <li> <span class="steps">Resell During Presale: </span> You can resell <%- appInfo.appName %></b> coins in the next batch to earn profit.</li>
-
-                                <li> <span class="steps">Exclusive: </span> Only <b style="color: #fe9400;">20.2 billion <%- appInfo.appName %></b> coins have been minted to preserve their exclusivity; each coin represents a finite piece of digital value, ensuring rarity and enduring value for holders.</li>
-
-                                <li> <span class="steps">Legal:</span> <%- appInfo.appName %> complies with relevant regulations and legal requirements, ensuring a transparent and compliant token sale process.</li>
-
-                                <li> <span class="steps">Purpose:</span> <%- appInfo.appName %> aims to become the primary medium of exchange and governance crypto within the batchchain ecosystem. </li>
-                            </ul>
-                        </div>
-                        <div class="aboutRightSection">
-                            <div class="rightSectionBox">
-                                <img src="images/graphs.png" alt="">
-                                <span class="allocation"><%- appInfo.appName %> Allocation</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            <!-- about section -->
-            <hr class="secondLine" id="howSectionLine">
-            <!-- How to section -->
-            <div class="howToSection">
-                <div class="howToTitle">
-                    <div class="mainTitle">How to buy <%- appInfo.appName %>?</div>
-                    
-                </div>
-                <div class="howSection">
-                    <div class="shader">
-                        <div class="leftHowSection">
-                            <ul>
-                                <li> <span class="steps">Create Account:</span>  The very first step is create an account on <%- appInfo.appName %> Official Platform. </li>
-                                <li> <span class="steps">Sign Up Options:</span> You have to select provided option to create account and login into your account. We recommand using google sign in method.</li>
-                                <li><span class="steps">Apply referal:</span>  If someone sends the link it may contain referal code. If referal code is not applied you can put your own referal by tapping on the link.</li>
-                                <li><span class="steps">Buy with card:</span>  Use your debit/credit/ATM card to purchase <%- appInfo.appName %>. The minimum purchase? Just $10. But <b style="color: orangered;">hurry, only 7 million</b> pioneers will seize this exclusive opportunity.</li>
-                                <li><span class="steps">Buy with crypto:</span>  You can purchase <%- appInfo.appName %> by sending your perfered crypto. Major cryptos like Solana, Bitcoin and Ethereum are supported.</li>
-
-                                <li><span class="steps">Create Solana wallet:</span>  Create a solana wallet on phantom wallet. If you don't have you can create a phantom wallet both on mobile and desktop. You can use other solana wallet but phantom is recommanded as it support the icon and transfer of your <%- appInfo.appName %>s.</li>
-                                <li><span class="steps">Add Your Solana address:</span>  Copy your solana wallet address from phantom and paste it in the box given in your account section. This is the account address where we will send you solana tokens.</li>
-                                <li><span class="steps">Airdropping: </span> Once the <%- appInfo.appName %> is launched we will airdrop your <%- appInfo.appName %>s to your solana wallet.</li>
-                            </ul>
-                        </div>
-                        <div class="rightHowSection">
-                            <img src="images/pay-card.png" alt="">
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            <!-- how to section -->
-            
-
-            
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo text-light font-weight-bold text-decoration-none" href="dashboard">
+            TuloByte
+          </a>
+          <a class="sidebar-brand brand-logo-mini text-light font-weight-bold text-decoration-none" href="dasboard">
+            TB
+          </a>
         </div>
+        <ul class="nav">
+          <li class="nav-item profile ">
+            <div class="profile-desc ">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="./images/anon.png" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">jdcds734bjhc8....</h5>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Navigation</span>
+          </li>
 
-        <!-- Footer Section -->
-        <div class="footer">
-            <div class="footerContent">
-                <div class="footerTop">
-                    <span class="headMessage">Whitepaper for Crypto presale and investment released.</br><span id="hint">(Password: <%- appInfo.appName %>)</span></span>
-                    <div class="buttonDiv"><span class="actionButton" onclick="goto('/whitepaper')"> Whitepaper_V1.pdf </span></div>
-                    
-                </div>
-                <div class="footerLinkDivs">
-                    <div class="links" onclick="goto('/roadmap')">Roadmap</div>
-                    <div class="links" onclick="goto('/sitemap')">Sitemap</div>
-                    <div class="links" onclick="goto('/terms-conditions')">Terms & Conditions</div>
+          <li class="nav-item menu-items active">
+            <a class="nav-link" href="/">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
 
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/stats">
+              <span class="menu-icon">
+                <i class="mdi mdi-signal"></i>
+              </span>
+              <span class="menu-title">Stats</span>
+            </a>
+          </li>
+
+          
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/mywallet">
+              <span class="menu-icon">
+                <i class="mdi mdi-wallet"></i>
+              </span>
+              <span class="menu-title">My Wallet</span>
+            </a>
+          </li>
+
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="pages/icons/mdi.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">Privacy</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="pages/icons/mdi.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-cloud-download"></i>
+              </span>
+              <span class="menu-title">Recovery</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="pages/charts/chartjs.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-logout text-danger"></i>
+              </span>
+              <span class="menu-title">Logout</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Dropdown</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <div class="searchDiv" id="searchDiv" onclick="hideSearchBox()">
+          <form id="searchForm" onclick="donotClose(event)">
+            <input type="text" class="form-control" placeholder="Search Transaction signature or wallet address">
+          </form>
+      </div>
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo-mini text-light font-weight-bold text-decoration-none" href="dashboard">
+              TuloByte
+            </a>
+          </div>
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-menu menuButton"></span>
+            </button>
+            <ul class="navbar-nav w-100">
+             
+              <li class="nav-item w-100">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search searchForm">
+                  <input type="text" class="form-control" placeholder="Search transaction signature or wallet address">
+                </form>
+              </li>
+              <li onclick="showSearchBox()" class="nav-item d-flex mdi mdi-magnify icon-md d-lg-none d-xl-none text-light mt-2 mr-2 searchIcon"></li>
+            </ul>
+
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown">
+                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+
+                  <div class="navbar-profile">
+                    <img class="img-xs rounded-circle  border border-info ml-2 m-1" src="./images/anon.png" alt="">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name mr-2">jdcds734bjhc8......</p>
+                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                  <h6 class="p-3 mb-0">Profile</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-wallet text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">My Wallet</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Log out</p>
+                    </div>
+                  </a>
                 </div>
-                <div class="footerLinkDivs">
-                    <div class="links" onclick="goto('/whitepaper')">Whitepaper</div>
-                    <div class="links"><a href="https://t.me/tulobyteofficial">Telegram</a></div>
-                    <div class="links" onclick="goto('/privacy-policy')">Privacy policy</div>
-                    
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-menu menuButton"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-12 mb-3 stretch-card">
+                <div class="card corona-gradient-card">
+                  <div class="card-body pt-2 pb-2 px-sm-3">
+                    <div class="row align-items-center">
+                      <div class="col-4 col-sm-3 col-xl-2">
+                        <img src="./images/compounding.png" class="gradient-corona-img img-fluid" alt="">
+                      </div>
+                      <div class="col-5 col-sm-7 col-xl-8 p-0">
+                        <h4 class="mb-1 mb-sm-0">Why we burn coins?</h4>
+                        <p class="mb-0 font-weight-normal d-sm-block topMessageSub">Click to understand the working and foundation of TuloByte</p>
+                      </div>
+                      <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
+                        <span>
+                          <a href="https://www.bootstrapdash.com/product/corona-admin-template/" target="_blank" class="btn btn-outline-light btn-rounded get-started-btn">Click Here</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="footerLinkDivs">
-                    
-                    <div class="links" onclick="goto('/support')">Support Page</div>
-                    <div class="links"><a href="mailto:tulobyte@outlook.com">Mail Us</a></div>
-                    <div class="links"><a href="https://discord.gg/4TU9tzyt83">Discord</a></div>
-                </div>
+              </div>
             </div>
 
-            <div class="copyright">
-                <%- appInfo.appName %> (TBS) | USA | 2024
+            <div class="scrollable-cards">
+              <div class="row">
+
+                <div class="col-auto mb-3 stretch-card">
+                  <div class="card">
+                    <div class="card-body statcards">
+                      <div class="row">
+                        <div class="col-8">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h3 class="mb-0">$1.05</h3>
+                            <p class="text-success ml-2 mb-0 font-weight-medium indicator">+5%</p>
+                          </div>
+                        </div>
+                      </div>
+                      <h6 class="text-muted mt-2 font-weight-bold ">Current Price <br> (in USD)</h6>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-auto mb-3 stretch-card">
+                  <div class="card">
+                    <div class="card-body statcards">
+                      <div class="row">
+                        <div class="col-8">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h3 class="mb-0">01</h3>
+                          </div>
+                        </div>
+                      </div>
+                      <h6 class="text-muted mt-2 font-weight-bold">Current Batch <br> (out of 200)</h6>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-auto  mb-3 stretch-card">
+                  <div class="card">
+                    <div class="card-body statcards">
+                      <div class="row">
+                        <div class="col-9">
+                          
+                          <div class="d-flex align-items-center align-self-start">
+                            <h3 class="mb-0">2.02b</h3>
+                            <p class="text-danger ml-2 mb-0 font-weight-medium indicator">-0.01%</p>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <h6 class="text-muted mt-2 font-weight-bold ">Current Supply <br> (in TB)</h6>
+                      
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-auto mb-3 stretch-card">
+                  <div class="card">
+                    <div class="card-body statcards">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h3 class="mb-0">12.98k</h3>
+                            <p class="text-danger ml-2 mb-0 font-weight-medium indicator">-2.4%</p>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <h6 class="text-muted mt-2 font-weight-bold">Coin Burned <br>  (in TB)</h6>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-auto mb-3 stretch-card">
+                  <div class="card">
+                    <div class="card-body statcards">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h3 class="mb-0">0.9m</h3>
+                            <p class="text-success ml-2 mb-0 font-weight-medium indicator">+0%</p>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <h6 class="text-muted mt-2 font-weight-bold">Amount Transacted <br> (in TB)</h6>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-auto mb-3 stretch-card">
+                  <div class="card">
+                    <div class="card-body statcards">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h3 class="mb-0">78.1k</h3>
+                            <p class="text-success ml-2 mb-0 font-weight-medium indicator">+11%</p>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <h6 class="text-muted mt-2 font-weight-bold">Qty. Transacted <br> (in TB)</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- Orders -->
+            <div class="row mt-3">
+              <div class="col-12 mb-2">
+                <div class="card">
+                  <div class="card-body txnCard">
+                    <h4 class="card-title">Buy/Sell Orders</h4>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Datetime (GMT)</th>
+                            <th>Type</th>
+                            <th> Placed By </th>
+                            <th>Quantity</th>
+                            <th> Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                          
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td>
+                              <span class="badge text-light bg-success p-1 pl-2 pr-2">buy</span>
+                            </td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 12.35</td>
+                            <td> 123.45</td>
+                          </tr>
+
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td>
+                              <span class="badge text-light bg-success p-1 pl-2 pr-2">buy</span>
+                            </td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 12.35</td>
+                            <td> 123.45</td>
+                          </tr>
+
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td>
+                              <span class="badge text-light bg-danger p-1 pl-2 pr-2">sell</span>
+                            </td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 12.35</td>
+                            <td> 123.45</td>
+                          </tr>
+                        
+
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td>
+                              <span class="badge text-light bg-danger p-1 pl-2 pr-2" >sell</span>
+                            </td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 12.35</td>
+                            <td> 123.45</td>
+                          </tr>
+
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td>
+                              <span class="badge text-light bg-success p-1 pl-2 pr-2">buy</span>
+                            </td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 12.35</td>
+                            <td> 123.45</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Orders -->
+
+            <!-- Transactions -->
+            <div class="row mt-3">
+              <div class="col-12 mb-2">
+                <div class="card">
+                  <div class="card-body txnCard">
+                    <h4 class="card-title">Live Transactions</h4>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Datetime (GMT)</th>
+                            <th>Signature</th>
+                            <th> Sender </th>
+                            <th> Amount</th>
+                            <th>Fee</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                          
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td> <a href="" class="link-primary">6hsf7d3c2fb......6f9f7d3c2fb</a></td>
+                            <td> <a href="" class="link-primary">9hsf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 123.45</td>
+                            <td>
+                              <div class="text-danger">1.01</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td> <a href="" class="link-primary">2fdff7d3c2fb......6f9f7d3c2fb</a></td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 123.45</td>
+                            <td>
+                              <div class="text-danger">1.01</div>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td> <a href="" class="link-primary">3vdf7d3c2fb......6f9f7d3c2fb</a></td>
+                            <td> <a href="" class="link-primary">9fgf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 123.45</td>
+                            <td>
+                              <div class="text-danger">1.01</div>
+                            </td>
+                          </tr>
+                          <tr>
+
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td> <a href="" class="link-primary">5gf7d3c2fb......6f9f7d3c2fb</a></td>
+                            <td> <a href="" class="link-primary">8gdf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 123.45</td>
+                            <td>
+                              <div class="text-danger">1.01</div>
+                            </td>
+                          </tr>
+                          <tr>
+
+                            <tr>
+                              <td>Aug 27, 2024 <br>12:43:56</td>
+                              <td> <a href="" class="link-primary">f7d3c2fb......6f9f7d3c2fb</a></td>
+                              <td> <a href="" class="link-primary">f7d3c2fb......6f9f7d3c2fb</a> </td>
+                              <td> 123.45</td>
+                              <td>
+                                <div class="text-danger">1.01</div>
+                              </td>
+                            </tr>
+                            <tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Transactions -->
+
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © tulobyte.com 2024</span>
+            </div>
+          </footer>
+          <!-- partial -->
         </div>
-        <!-- footer section -->
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
     </div>
-    
-    <script src="files/func.js?v=1.0.3"></script>
-</body>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="files/func.js"></script>
+    <!-- End custom js for this page -->
+  </body>
 </html>
-

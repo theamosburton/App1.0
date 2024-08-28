@@ -518,7 +518,9 @@ body{
     }
 }
 @media screen and (max-width: 400px){
-    
+    body{
+        align-items: flex-start;
+    }
     .verificationTitle{
         margin-top: 15px;
         font-size: 22px;

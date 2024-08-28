@@ -113,7 +113,7 @@ app.post('/API/captcha/generateCaptcha', async (req, res) => {
 });
 
 app.get('/mywallet', async (req, res) => {
-    res.render('mywallet');
+    res.render('login');
 });
 
 
@@ -142,6 +142,11 @@ app.get('/privacy-policy', async (req, res) => {
     var data = await views.docPages(req);
     var appInfo = views.appInfo;
     res.render('privacy-policy', {data, appInfo});
+});
+
+app.get('/', async (req, res) => {
+    // var data = await loadViews.support(req);
+    res.render('home');
 });
 
 app.get('/stats', async (req, res) => {

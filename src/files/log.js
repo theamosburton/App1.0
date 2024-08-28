@@ -596,7 +596,7 @@ function gotoMainScreen(){
     let loginArea = document.getElementById("loginViewArea");
     loginArea.innerHTML = `
     <div class="loginTitle">
-                <span>Your ShellCoin Wallet</span>
+                <span>My Wallet</span>
             </div>
             <hr width="80px">
             <div class="loginModes">
