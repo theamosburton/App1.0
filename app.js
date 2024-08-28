@@ -144,9 +144,9 @@ app.get('/privacy-policy', async (req, res) => {
     res.render('privacy-policy', {data, appInfo});
 });
 
-app.get('/', async (req, res) => {
+app.get('/stats', async (req, res) => {
     // var data = await loadViews.support(req);
-    res.render('dashboard');
+    res.render('stats');
 });
 
 const renderSitemap = (req, res) => {

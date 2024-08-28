@@ -53,13 +53,22 @@
           <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
           </li>
-
-          <li class="nav-item menu-items active">
+          <li class="nav-item menu-items">
             <a class="nav-link" href="#">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+
+
+          <li class="nav-item menu-items active">
+            <a class="nav-link" href="#">
+              <span class="menu-icon">
+                <i class="mdi mdi-signal"></i>
+              </span>
+              <span class="menu-title">Stats</span>
             </a>
           </li>
 
@@ -149,7 +158,7 @@
              
               <li class="nav-item w-100">
                 <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search searchForm">
-                  <input type="text" class="form-control" placeholder="Search Transactions and wallet">
+                  <input type="text" class="form-control" placeholder="Search transaction signature or wallet address">
                 </form>
               </li>
               <li onclick="showSearchBox()" class="nav-item d-flex mdi mdi-magnify icon-md d-lg-none d-xl-none text-light mt-2 mr-2 searchIcon"></li>
@@ -339,6 +348,87 @@
               </div>
             </div>
 
+            <!-- Orders -->
+            <div class="row mt-3">
+              <div class="col-12 mb-2">
+                <div class="card">
+                  <div class="card-body txnCard">
+                    <h4 class="card-title">Buy/Sell Orders</h4>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Datetime (GMT)</th>
+                            <th>Type</th>
+                            <th> Placed By </th>
+                            <th>Quantity</th>
+                            <th> Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                          
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td>
+                              <span class="badge text-light bg-success p-1 pl-2 pr-2">buy</span>
+                            </td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 12.35</td>
+                            <td> 123.45</td>
+                          </tr>
+
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td>
+                              <span class="badge text-light bg-success p-1 pl-2 pr-2">buy</span>
+                            </td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 12.35</td>
+                            <td> 123.45</td>
+                          </tr>
+
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td>
+                              <span class="badge text-light bg-danger p-1 pl-2 pr-2">sell</span>
+                            </td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 12.35</td>
+                            <td> 123.45</td>
+                          </tr>
+                        
+
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td>
+                              <span class="badge text-light bg-danger p-1 pl-2 pr-2" >sell</span>
+                            </td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 12.35</td>
+                            <td> 123.45</td>
+                          </tr>
+
+                          <tr>
+                            <td>Aug 27, 2024 <br>12:43:56</td>
+                            <td>
+                              <span class="badge text-light bg-success p-1 pl-2 pr-2">buy</span>
+                            </td>
+                            <td> <a href="" class="link-primary">7gdfbf7d3c2fb......6f9f7d3c2fb</a> </td>
+                            <td> 12.35</td>
+                            <td> 123.45</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Orders -->
+
+            <!-- Transactions -->
             <div class="row mt-3">
               <div class="col-12 mb-2">
                 <div class="card">
@@ -356,51 +446,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Aug 27, 2024 <br> 12:43:56</td>
-                            <td> <a href="" class="link-primary">f7dfdg3c2fb......6f9fsdf7d3c2fb</a></td>
-                            <td> <a href="" class="link-primary">f7d3c2fb......6f9f7dsdf3c2fb</a> </td>
-                            <td> 123.45</td>
-                            <td>
-                              <div class="text-danger">1.01</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Aug 27, 2024 <br>12:43:56</td>
-                            <td> <a href="" class="link-primary">f7dfsd3c2fb......6f9f7ddsf3c2fb</a></td>
-                            <td> <a href="" class="link-primary">f7d3sdfc2fb......6f9f7dsdf3c2fb</a> </td>
-                            <td> 123.45</td>
-                            <td>
-                              <div class="text-danger">1.01</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Aug 27, 2024 <br>12:43:56</td>
-                            <td> <a href="" class="link-primary">f7d3fdsc2fb......dsf6f9f7d3c2fb</a></td>
-                            <td> <a href="" class="link-primary">f7d3cfds2fb......6f9dsff7d3c2fb</a> </td>
-                            <td> 123.45</td>
-                            <td>
-                              <div class="text-danger">1.01</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Aug 27, 2024 <br>12:43:56</td>
-                            <td> <a href="" class="link-primary">fdsf7d3c2fb......6f9sdff7d3c2fb</a></td>
-                            <td> <a href="" class="link-primary">gdfgf7d3c2fb......6sdff9f7d3c2fb</a> </td>
-                            <td> 123.45</td>
-                            <td>
-                              <div class="text-danger">1.01</div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Aug 27, 2024 <br>12:43:56</td>
-                            <td> <a href="" class="link-primary">ewrf7d3c2fb......6f9f7d3c2fb</a></td>
-                            <td> <a href="" class="link-primary">fngh7d3c2fb......6fsdf9f7d3c2fb</a> </td>
-                            <td> 123.45</td>
-                            <td>
-                              <div class="text-danger">1.01</div>
-                            </td>
-                          </tr>
+                          
+                          
                           <tr>
                             <td>Aug 27, 2024 <br>12:43:56</td>
                             <td> <a href="" class="link-primary">6hsf7d3c2fb......6f9f7d3c2fb</a></td>
@@ -460,6 +507,8 @@
                 </div>
               </div>
             </div>
+            <!-- Transactions -->
+
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
