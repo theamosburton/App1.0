@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TuloByte Wallet Account</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo text-light font-weight-bold text-decoration-none" href="dashboard">
+            TuloByte
+          </a>
+          <a class="sidebar-brand brand-logo-mini text-light font-weight-bold text-decoration-none" href="dasboard">
+            TB
+          </a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item profile ">
+            <div class="profile-desc ">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="./images/anon.png" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">jdcds734bjhc8....</h5>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Navigation</span>
+          </li>
+
+          <li class="nav-item menu-items active">
+            <a class="nav-link" href="#">
+              <span class="menu-icon">
+                <i class="mdi mdi-wallet"></i>
+              </span>
+              <span class="menu-title">My Wallet</span>
+            </a>
+          </li>
+
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/stats">
+              <span class="menu-icon">
+                <i class="mdi mdi-signal"></i>
+              </span>
+              <span class="menu-title">Stats</span>
+            </a>
+          </li>
+
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/privacy">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">Privacy</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/recovery">
+              <span class="menu-icon">
+                <i class="mdi mdi-cloud-download"></i>
+              </span>
+              <span class="menu-title">Recovery</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/logout">
+              <span class="menu-icon">
+                <i class="mdi mdi-logout text-danger"></i>
+              </span>
+              <span class="menu-title">Logout</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Dropdown</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li> -->
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/docs">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Learn TuloByte</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <div class="searchDiv" id="searchDiv" onclick="hideSearchBox()">
+          <form id="searchForm" onclick="donotClose(event)">
+            <input type="text" class="form-control" placeholder="Search Transaction signature or wallet address">
+          </form>
+        </div>
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo-mini text-light font-weight-bold text-decoration-none" href="dashboard">
+              TuloByte
+            </a>
+          </div>
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-menu menuButton"></span>
+            </button>
+            <ul class="navbar-nav w-100">
+             
+              <li class="nav-item w-100">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search searchForm">
+                  <input type="text" class="form-control" placeholder="Search transaction signature or wallet address">
+                </form>
+              </li>
+              <li onclick="showSearchBox()" class="nav-item d-flex mdi mdi-magnify icon-md d-lg-none d-xl-none text-light mt-2 mr-2 searchIcon"></li>
+            </ul>
+
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown">
+                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+
+                  <div class="navbar-profile">
+                    <img class="img-xs rounded-circle  border border-info ml-2 m-1" src="./images/anon.png" alt="">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name mr-2">jdcds734bjhc8......</p>
+                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                  <h6 class="p-3 mb-0">Profile</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-wallet text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">My Wallet</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Log out</p>
+                    </div>
+                  </a>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-menu menuButton"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- partial -->
+
+
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h2 class="page-title font-weight-bold"> My Wallet </h2>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title ">Wallet Address</h4>
+                    <code class="copyTextCode"><span class="copyText" id="walletAddress">40e5c05e33a53f7565d7a0b8c6c9775a78b73205 </span><i onclick="copyToClipboard('walletAddress', 'Wallet Address')" class="pl-2 text-light mdi mdi-content-copy"></i></code>
+                    <p class="card-description mt-2"> A wallet address is a unique identifier used to send and receive tulobytes (TB's) ; always double-check it carefully, as transactions are irreversible.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Cryptos -->
+              <div class="col-lg-6 col-md-6 col-sm-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Cryptos</h4>
+                    <div class="table-responsive table-dark">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th><span class="text-light">Type</span></th>
+                            <th><span class="text-light">Amount</span></th>
+                            <th class="justify-content-center"> <span class="text-light text-center">in USD</span> </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="border">
+                            <td> <div class="text-info">BTC</div></td>
+                            <td> <div class="text-primary">0.00</div></td>
+                            <td> <div class="text-success">$0.00</div></td>
+                          </tr>
+                          <tr class="border">
+                            <td> <div class="text-info">ETH</div></td>
+                            <td> <div class="text-primary">0.00</div></td>
+                            <td> <div class="text-success">$0.00</div></td>
+                          </tr>
+                          <tr class="border">
+                            <td> <div class="text-info">SOL</div></td>
+                            <td> <div class="text-primary">0.00</div></td>
+                            <td> <div class="text-success">$0.00</div></td>
+                          </tr>
+                          <tr class="border">
+                            <td> <div class="text-light font-weight-bold">Total</div></td>
+                            <td> <div class="text-primary">--</div></td>
+                            <td> <div class="text-success font-weight-bold">$0.00</div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Cryptos -->
+
+              <!-- Tulobytes -->
+              <div class="col-lg-6 col-md-6 col-sm-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">TuloBytes</h4>
+                    <div class="table-responsive table-dark">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th><span class="text-light">Batch</span></th>
+                            <th><span class="text-light">Amount(a)</span></th>
+                            <th> <span class="text-light">Burnable(b)</span> </th>
+                            <th class="justify-content-center"> <span class="text-light text-center">Total (a - b)</span> </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="border">
+                            <td><div class="text-info">B13</div></td>
+                            <td><div class="text-primary">1235</div></td>
+                            <td><div class="text-danger">12.35</div></td>
+                            <td><div class="text-success">1221</div></td>
+                          </tr>
+
+                          <tr class="border">
+                            <td><div class="text-info">B9</div></td>
+                            <td><div class="text-primary">1235</div></td>
+                            <td><div class="text-danger">12.35</div></td>
+                            <td><div class="text-success">1221</div></td>
+                          </tr>
+
+                          <tr class="border">
+                            <td><div class="text-info">B3</div></td>
+                            <td><div class="text-primary">1235</div></td>
+                            <td><div class="text-danger">12.35</div></td>
+                            <td><div class="text-success">1221</div></td>
+                          </tr>
+
+                          <tr>
+                            <td><div class="font-weight-bold text-light">Total</div></td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td><div class="font-weight-bold text-success">1221</div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+              <!-- Cryptos -->
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © tulobyte.com 2024</span>
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="files/func.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>

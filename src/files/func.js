@@ -111,8 +111,14 @@ async function copyToClipboard(divId, type) {
         divElement.select()
     }else if(type == 'Wallet Address'){
         try {
-            divElement.select();
-            await navigator.clipboard.writeText(divElement.value);
+            const range = document.createRange();
+            range.selectNodeContents(divElement);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            // divElement.select();
+            await navigator.clipboard.writeText(divElement.innerHTML);
             alert(`${type} copied to clipboard!`);
         } catch (err) {
             console.error(`Failed to copy ${type}`);

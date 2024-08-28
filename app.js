@@ -116,6 +116,10 @@ app.get('/mywallet', async (req, res) => {
     res.render('login');
 });
 
+app.get('/mywallets', async (req, res) => {
+    res.render('mywallet');
+});
+
 
 app.get('/API/checkReferal', async (req, res) => {
     const referalWallet = req.query.ref;
