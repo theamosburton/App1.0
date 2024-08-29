@@ -106,9 +106,7 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
-.tuloByteCard{
-  border-left: 1.5px solid #0090e7;
-}
+
 .copyText{
   color: rgb(200, 196, 196) !important;
   border: 1px solid rgb(70, 68, 68);
@@ -187,10 +185,7 @@
   margin-right: 15px; /* Adjust as needed */
 }
 @media (max-width: 1000px){
-  .tuloByteCard{
-    border:none;
-    border-top: 1.5px solid #313233;
-  }
+  
 }
 @media (min-width: 1000px) {
   
