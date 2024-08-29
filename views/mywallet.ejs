@@ -266,6 +266,30 @@
                               </tbody>
                             </table>
                           </div>
+                          <div class="mt-2 card-description" style="font-size: 0.9rem;">Select crypto from the dropdown, a wallet will be created, copy the wallet address and place order.</div>
+                          <span class="card-description" style="font-size: 0.9rem;">If order transfered click to <span class="text-primary refreshWallet"> refresh wallet</span> </span>
+                          <!-- <h4 class="text-small mt-2 font-weight-bold mb-0">Bitcoin Wallet Address</h4> -->
+                          <div class="mt-1 btn-group w-auto d-block">
+                            <button class="btn btn-primary">Select Cryptos to Add</button>
+                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" id="dropdownMenuSplitButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuSplitButton1">
+                              <p class="dropdown-item cryptoDropdown font-weight-bold">Bitcoin(BTC)</p>
+                              <p class="dropdown-item cryptoDropdown font-weight-bold">Ether(ETH)</p>
+                              <p class="dropdown-item cryptoDropdown font-weight-bold">Solana(SOL)</p>
+                            </div>
+                          </div>
+
+                          <!-- <code class="copyTextCode mb-1 mt-0"><span class="copyText" id="walletAddress">40e5c05e33a53f7565d7a0b8c6c9775a78b73205 </span><i onclick="copyToClipboard('walletAddress', 'Wallet Address')" class="pl-2 text-light mdi mdi-content-copy"></i></code>
+                          <div class="card-description mb-1" style="font-size: 0.9rem;"> Make sure to copy the wallet address, then click on any following link to buy bitcoin.</div>
+                          <div class="d-flex">
+                            <a class="btn-primary m-1 pl-2 pr-2 rounded" href="https://buy.simplex.com/" target="_blank">Link 1</a>
+                            <a class="btn-primary m-1  pl-2 pr-2 rounded" href="https://ramp.network/buy" target="_blank">Link 2</a>
+                            <a class="btn-primary m-1  pl-2 pr-2 rounded" href="https://buy.bitcoin.com/" target="_blank">Link 3</a>
+                            <a class="btn-primary m-1  pl-2 pr-2 rounded" href="https://changelly.com/buy" target="_blank">Link 4</a>
+                          </div> -->
+                          <a href="" class="mt-2"> Learn how to place order?</a>
+                          
                       </div>
                       <!-- Cryptos -->
                       <div class="col-lg-1"></div>
@@ -311,6 +335,20 @@
                                 </tr>
                               </tbody>
                             </table>
+                          </div>
+                          <div class="card-description mt-2" style="font-size: 0.9rem;">You can place order only if you have cryptos or fiat currency.</div>
+
+                          <div class="input-group mt-3 pl-2 pr-2 mb-2 orderDiv">
+                            <input type="number" class="form-control border-secondary orderInput" aria-label="Text input with dropdown button" placeholder="564 TB, 13 USD">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary dropdown-toggle orderToggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> USD </button>
+                              <div class="dropdown-menu">
+                                <span class="dropdown-item cryptoDropdown"  href="#">USD</span>
+                                <span class="dropdown-item cryptoDropdown" href="#">TBS</span>
+                              </div>
+                            </div>
+
+                            <button class="btn btn-success ml-3 font-weight-bold orderButton">Order</button>
                           </div>
                       </div>
                       <!-- Tulobytes -->

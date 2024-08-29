@@ -106,7 +106,33 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
-
+.orderDiv{
+  max-width: 420px !important;
+  align-self: flex-end;
+}
+.orderButton{
+  border-radius: 7px !important;
+}
+.orderInput{
+  color: white !important;
+  font-weight: bold !important;
+  border-radius:7px 0px 0px 7px !important;
+}
+.orderInput:hover, .orderInput:visited{
+  border: 2px solid rgb(205, 192, 192) !important;
+}
+.orderToggle{
+  border-radius: 0px 7px 7px 0px !important;
+}
+.cryptoDropdown:hover{
+  color:#4ebcff !important;
+  cursor: pointer;
+  background-color: unset !important;
+}
+.refreshWallet:hover{
+  cursor: pointer;
+  color:#0068a7 !important;
+}
 .copyText{
   color: rgb(200, 196, 196) !important;
   border: 1px solid rgb(70, 68, 68);
