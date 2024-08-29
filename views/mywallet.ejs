@@ -201,219 +201,125 @@
 
         <div class="main-panel">
           <div class="content-wrapper">
-            <div class="page-header">
-              <h2 class="page-title font-weight-bold"> My Wallet </h2>
+            <div class="page-header walletHeader">
+              <h2 class=" mt-1 ml-2 mb-0 font-weight-bold text-large"> My Wallet </h2>
             </div>
 
             <div class="row">
-              <div class="col-lg-12 grid-margin">
+              <div class="col-lg-12 grid-margin walletInfo">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title ">Wallet Address</h4>
-                    <code class="copyTextCode"><span class="copyText" id="walletAddress">40e5c05e33a53f7565d7a0b8c6c9775a78b73205 </span><i onclick="copyToClipboard('walletAddress', 'Wallet Address')" class="pl-2 text-light mdi mdi-content-copy"></i></code>
-                    <p class="card-description mt-2"> A wallet address is a unique identifier used to send and receive tulobytes (TB's) ; always double-check it carefully, as transactions are irreversible.
-                    </p>
+                    <code class="copyTextCode mb-3"><span class="copyText" id="walletAddress">40e5c05e33a53f7565d7a0b8c6c9775a78b73205 </span><i onclick="copyToClipboard('walletAddress', 'Wallet Address')" class="pl-2 text-light mdi mdi-content-copy"></i></code>
+                    <p class="card-description mt-2"> A wallet address is a unique identifier used to send and receive tulobytes (TB's) ; always double-check it carefully, as transactions are irreversible. To see full wallet information <b class="font-weight-bold">(transactions, orders etc.)</b>  click on more info.</p>
+
+                    <div class="d-flex w-100 justify-content-end"> <a href="" class="link-primary"> More Info...</a> </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <!-- Cryptos -->
-              <div class="col-lg-6 col-md-6 col-sm-12 grid-margin">
+              <div class="col-12">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Cryptos</h4>
-                    <div class="table-responsive table-dark">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th><span class="text-light">Type</span></th>
-                            <th><span class="text-light">Amount</span></th>
-                            <th class="justify-content-center"> <span class="text-light text-center">in USD</span> </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr class="border">
-                            <td> <div class="text-info">BTC</div></td>
-                            <td> <div class="text-primary">0.00</div></td>
-                            <td> <div class="text-success">$0.00</div></td>
-                          </tr>
-                          <tr class="border">
-                            <td> <div class="text-info">ETH</div></td>
-                            <td> <div class="text-primary">0.00</div></td>
-                            <td> <div class="text-success">$0.00</div></td>
-                          </tr>
-                          <tr class="border">
-                            <td> <div class="text-info">SOL</div></td>
-                            <td> <div class="text-primary">0.00</div></td>
-                            <td> <div class="text-success">$0.00</div></td>
-                          </tr>
-                          <tr class="border">
-                            <td> <div class="text-light font-weight-bold">Total</div></td>
-                            <td> <div class="text-primary">--</div></td>
-                            <td> <div class="text-success font-weight-bold">$0.00</div></td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <h4 class="card-title"> All Funds</h4>
+                    <div class="row">
+                      <!-- Cryptos and Faits -->
+                      <div class="mt-2 mt-lg-0 card col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                          <h5>Cryptos and Fiat</h5>
+                          <div class="table-responsive table-dark">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th><span class="text-light">Type</span></th>
+                                  <th><span class="text-light">Amount</span></th>
+                                  <th class="justify-content-center"> <span class="text-light text-center">in USD</span> </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <!-- <tr class="border">
+                                  <td> <div class="text-info">BTC</div></td>
+                                  <td> <div class="text-primary">0.00</div></td>
+                                  <td> <div class="text-success">$0.00</div></td>
+                                </tr> -->
+                                <tr class="border">
+                                  <td> <div class="text-info">USD</div></td>
+                                  <td> <div class="text-primary">0.00</div></td>
+                                  <td> <div class="text-success">$0.00</div></td>
+                                </tr>
+                                <!-- <tr class="border">
+                                  <td> <div class="text-info">ETH</div></td>
+                                  <td> <div class="text-primary">0.00</div></td>
+                                  <td> <div class="text-success">$0.00</div></td>
+                                </tr>
+                                <tr class="border">
+                                  <td> <div class="text-info">SOL</div></td>
+                                  <td> <div class="text-primary">0.00</div></td>
+                                  <td> <div class="text-success">$0.00</div></td>
+                                </tr> -->
+                                <tr class="border">
+                                  <td> <div class="text-light font-weight-bold">Total</div></td>
+                                  <td> <div class="text-primary">--</div></td>
+                                  <td> <div class="text-success font-weight-bold">$0.00</div></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                      </div>
+                      <!-- Cryptos -->
+
+                      <!-- Tulobytes -->
+                      <div class="tuloByteCard mt-4 pt-4 pt-lg-0  mt-lg-0 col-xl-6 col-lg-6 col-md-12 col-sm-12 border-top-sm">
+                          <h5>Tulobytes</h5>
+                          <div class="table-responsive table-dark">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th><span class="text-light">Batch</span></th>
+                                  <th><span class="text-light">Amount(a)</span></th>
+                                  <th> <span class="text-light">Burnable(b)</span> </th>
+                                  <th class="justify-content-center"> <span class="text-light text-center">Total (a - b)</span> </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <!-- <tr class="border">
+                                  <td><div class="text-info">B13</div></td>
+                                  <td><div class="text-primary">1235</div></td>
+                                  <td><div class="text-danger">12.35</div></td>
+                                  <td><div class="text-success">1221</div></td>
+                                </tr>
+
+                                <tr class="border">
+                                  <td><div class="text-info">B9</div></td>
+                                  <td><div class="text-primary">1235</div></td>
+                                  <td><div class="text-danger">12.35</div></td>
+                                  <td><div class="text-success">1221</div></td>
+                                </tr> -->
+                                <tr class="border">
+                                  <td><div class="text-info">B0</div></td>
+                                  <td><div class="text-primary">0</div></td>
+                                  <td><div class="text-danger">0</div></td>
+                                  <td><div class="text-success">0</div></td>
+                                </tr>
+
+                                <tr>
+                                  <td><div class="font-weight-bold text-light">Total</div></td>
+                                  <td>--</td>
+                                  <td>--</td>
+                                  <td><div class="font-weight-bold text-success">0</div></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                      </div>
+                      <!-- Tulobytes -->
                     </div>
                   </div>
                 </div>
+                 
               </div>
-              <!-- Cryptos -->
-
-              <!-- Tulobytes -->
-              <div class="col-lg-6 col-md-6 col-sm-12 grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">TuloBytes</h4>
-                    <div class="table-responsive table-dark">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th><span class="text-light">Batch</span></th>
-                            <th><span class="text-light">Amount(a)</span></th>
-                            <th> <span class="text-light">Burnable(b)</span> </th>
-                            <th class="justify-content-center"> <span class="text-light text-center">Total (a - b)</span> </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr class="border">
-                            <td><div class="text-info">B13</div></td>
-                            <td><div class="text-primary">1235</div></td>
-                            <td><div class="text-danger">12.35</div></td>
-                            <td><div class="text-success">1221</div></td>
-                          </tr>
-
-                          <tr class="border">
-                            <td><div class="text-info">B9</div></td>
-                            <td><div class="text-primary">1235</div></td>
-                            <td><div class="text-danger">12.35</div></td>
-                            <td><div class="text-success">1221</div></td>
-                          </tr>
-
-                          <tr class="border">
-                            <td><div class="text-info">B3</div></td>
-                            <td><div class="text-primary">1235</div></td>
-                            <td><div class="text-danger">12.35</div></td>
-                            <td><div class="text-success">1221</div></td>
-                          </tr>
-
-                          <tr>
-                            <td><div class="font-weight-bold text-light">Total</div></td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td><div class="font-weight-bold text-success">1221</div></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-              <!-- Cryptos -->
-            </div>
-
-
-            
-            <div class="row mt-3">
-              <!-- Orders -->
-              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12  mb-2">
-                <div class="card">
-                  <div class="card-body txnCard">
-                    <h4 class="card-title">Your Orders</h4>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Datetime (GMT)</th>
-                            <th>Type</th>
-                            <th>Quantity</th>
-                            <th>Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                          <tr>
-                            <td>Aug 27, 2024 <br>12:43:56</td>
-                            <td>
-                              <span class="badge text-light bg-danger p-1 pl-2 pr-2">sell</span>
-                            </td>
-                            <td> 123.45</td>
-                            <td><div class="text-primary">pending</div> </td>
-                          </tr>
-
-                          <tr>
-                            <td>Aug 27, 2024 <br>12:43:56</td>
-                            <td>
-                              <span class="badge text-light bg-success p-1 pl-2 pr-2">buy</span>
-                            </td>
-                            <td> 123.45</td>
-                            <td><div class="text-danger">rejected</div> </td>
-                          </tr>
-
-                          <tr>
-                            <td>Aug 27, 2024 <br>12:43:56</td>
-                            <td>
-                              <span class="badge text-light bg-success p-1 pl-2 pr-2">buy</span>
-                            </td>
-                            <td> 12.35</td>
-                            <td><div class="text-success">completed</div> </td>
-                          </tr>
-
-                          
-                        </tbody>
-                      </table>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-               <!-- Orders -->
-
-               <!-- Txns -->
-              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12  mb-2">
-                <div class="card">
-                  <div class="card-body txnCard">
-                    <h4 class="card-title">My Transactions</h4>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Datetime (GMT)</th>
-                            <th>Signature</th>
-                            <th>Quantity</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Aug 27, 2024 <br>12:43:56</td>
-                            <td> <a href="">7djhf857j...7hfa3g</a> </td>
-                            <td> <div class="text-success">+123.45</div> </td>
-                          </tr>
-
-                          <tr>
-                            <td>Aug 27, 2024 <br>12:43:56</td>
-                            <td> <a href="">7djhf857j...7hfa3g</a> </td>
-                            <td> <div class="text-danger">-123.45</div> </td>
-                          </tr>
-
-                          <tr>
-                            <td>Aug 27, 2024 <br>12:43:56</td>
-                            <td> <a href="">7djhf857j...7hfa3g</a> </td>
-                            <td> <div class="text-danger">-12</div> </td>
-                          </tr>
-
-                        </tbody>
-                      </table>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-               <!-- Txns -->
+             
             </div>
            
           </div>

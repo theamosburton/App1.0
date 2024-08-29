@@ -112,11 +112,11 @@ app.post('/API/captcha/generateCaptcha', async (req, res) => {
 
 });
 
-app.get('/mywallet', async (req, res) => {
+app.get('/login', async (req, res) => {
     res.render('login');
 });
 
-app.get('/mywallets', async (req, res) => {
+app.get('/mywallet', async (req, res) => {
     res.render('mywallet');
 });
 

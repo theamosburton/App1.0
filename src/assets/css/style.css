@@ -106,6 +106,9 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
+.tuloByteCard{
+  border-left: 1.5px solid #0090e7;
+}
 .copyText{
   color: rgb(200, 196, 196) !important;
   border: 1px solid rgb(70, 68, 68);
@@ -183,7 +186,14 @@
   width: 75%;
   margin-right: 15px; /* Adjust as needed */
 }
+@media (max-width: 1000px){
+  .tuloByteCard{
+    border:none;
+    border-top: 1.5px solid #313233;
+  }
+}
 @media (min-width: 1000px) {
+  
   .scrollable-cards::-webkit-scrollbar{
     height: 8px;
     width: 10px;
@@ -196,7 +206,13 @@
 }
 
 @media (max-width: 700px) {
-  
+
+  .walletInfo{
+    margin-bottom: 0.8rem !important;
+  }
+  .walletHeader{
+    margin-bottom: 0.8rem !important;
+  }
     .border-sm-none {
       border: none !important;
     }
